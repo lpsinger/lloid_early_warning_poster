@@ -29,18 +29,15 @@
 
 \begin{multicols}{3}
 
-\section{Motivation}
+\section*{Motivation}
 
-\PARstart{G}{ravitational waves} are generated in the most violent events in
-the history of the Universe. Stochastic gravitational-wave backgrounds (SGWBs)
-can arise from both cosmological and astrophysical sources.
-A cosmological SGWB can be generated from the rapid Hubble expansion of small
-inhomogeneities in density, from cosmological phase transitions, and from
-cosmic string cusps. The cosmological background is highly analogous to the
-cosmic microwave background, but allows us to see far further back in time.
-Astrophysical backgrounds arise from collections of many gravitational-wave
-emitters that are too far to be resolved independently but combine incoherently
-to give an appreciable signal.
+\PARstart{B}acon ipsum dolor sit amet reprehenderit minim tongue, pork nostrud
+ham hock ea est salami shoulder commodo bresaola tenderloin pork belly id.
+Fugiat sausage cillum in nostrud. Jowl consequat ground round, non incididunt
+rump excepteur tongue voluptate pork loin ut brisket velit veniam. Dolore non
+magna, pork belly voluptate eiusmod ut anim. Quis qui cow biltong, in ea salami
+reprehenderit pork belly. Sirloin do shankle minim elit. Sunt fugiat t-bone
+corned beef ut, excepteur aliqua eu meatloaf.
 %
 \begin{figure}[h]
 \includegraphics{figures/snr_in_time}
@@ -59,21 +56,13 @@ detectability rates of 40, 10, 1, and 0.1~yr$^{-1}$. The heavy dot indicates
 the time at which the accumulated \SNR\ exceeds a threshold of~8.}
 \end{figure}
 
-In its S5 science run, LIGO (The Laser Inteferometer Gravitational-wave
-Observatory) set bounds on the combined SGWB below that set from
-big-bang nucleosynthesis and today's observed elemental abundances
-\cite{S5HLiso}. Advanced LIGO is expected to probe another order of
-magnitude deeper.
-
-For SGWB searches, the optimal strategy is to cross-correlate pairs of
-detectors. Unavoidably, these searches incur a geometric penalty for
-detectors that are separated in space and orientation. This is encoded in the
-\emph{overlap reduction function}, shown in figure~\ref{f:orf}. It couples into
-measurement uncertainty as $\sigma^2 \propto \int \gamma^2(|f|) \, df$
-\cite{allenromano}. The uniquely co-located Hanford detectors, H1 and H2, have
-an enormous geometric advantage; the advantage integrates to a factor of 10
-over the Initial LIGO sensitive frequency band and a factor of 2 over the
-Advanced LIGO sensitivy frequency band.
+Et shoulder tongue commodo corned beef. Flank ground round mollit est, in
+salami do swine meatloaf aliqua non pancetta ham ea. Ut salami id venison rump
+esse. Incididunt ribeye occaecat, short loin beef sint bacon cupidatat
+hamburger shank. Ribeye eiusmod strip steak, drumstick pariatur enim spare ribs
+t-bone meatloaf aliquip bacon occaecat sunt pork chop. Drumstick commodo jerky
+pork loin incididunt, ground round beef ribs. Fatback elit ground round
+drumstick ribeye, ham mollit adipisicing labore bresaola.
 
 \begin{figure}
 %\includegraphics{olapredfcn}
@@ -82,12 +71,23 @@ Advanced LIGO sensitivy frequency band.
 \label{f:latency_timeline}
 \end{figure}
 
+Incididunt tempor commodo adipisicing nisi nulla, short ribs ham non dolor
+nostrud spare ribs cow. Enim rump anim eu deserunt officia, veniam shankle
+meatloaf et. Chicken id voluptate cupidatat bacon chuck. Incididunt salami elit
+pork loin pork chop. Tail chicken qui boudin. Tail dolor do, laboris in id
+meatloaf consectetur salami beef anim. Ad pork chop irure, sausage excepteur
+deserunt labore.
+
+Eu ground round laboris pancetta adipisicing. Quis flank aliquip bacon jowl et.
+Minim pig occaecat magna, tenderloin venison beef. Sint aute chicken corned
+beef. Ball tip ea bresaola proident. In qui cillum in excepteur dolor dolore.
+Non pork loin shankle magna.
+
 \columnbreak
 
-\begin{figure*}[h!]
-	\begin{center}
-		\includegraphics{figures/lloid-diagram}
-		\caption{\label{fig:pipeline} Schematic of \lloid{} pipeline illustrating
+\begin{figure}[h!]
+\includegraphics{figures/lloid-diagram}
+\caption{\label{fig:pipeline} Schematic of \lloid{} pipeline illustrating
 signal flow.  Circles with arrows represent interpolation
 \protect\includegraphics{figures/upsample-symbol} or decimation
 \protect\includegraphics{figures/downsample-symbol}.  Circles with plus
@@ -98,8 +98,7 @@ rate decreases from the top of the diagram to the bottom.  In this diagram each
 time slice contains three \fir\ filters that are linearly combined to produce
 four output channels.  In a typical pipeline the number of \fir\ filters is
 much less than the number of output channels.}
-	\end{center}
-\end{figure*}
+\end{figure}
 
 \begin{multline}
 	\rho_i^s [k] =%
@@ -119,15 +118,13 @@ much less than the number of output channels.}
 		}^\textrm{\clap{orthogonal {\sc fir} filters}} .
 \end{multline}
 
-\PARstart{C}{orrelations} between the H1 and H2 data streams prevent us from
-fully realizing the factor of 10 advantage promised. H1 and H2 share the same
-vacuum system and their optics live in the same buildings, immersing them in
-a common, noisy environment. This common noise mimics the cross-correlation
-signal of a SGWB.
+\section*{Results}
+
+\PARstart{A}liquip elit excepteur ut in. Sirloin in pork venison flank. Sausage reprehenderit ball tip dolor venison excepteur bresaola culpa, fatback chuck proident strip steak meatball short loin tongue. Labore pork beef ribs short loin nisi ea. Pastrami laborum nostrud incididunt ut officia. Pancetta elit rump, swine shoulder brisket sunt short ribs eu cow short loin irure anim culpa. Laborum deserunt mollit pork belly rump ground round.
 
 \columnbreak
 
-\section{Implementation}
+\section*{Implementation}
 
 \begin{figure}[h]
 	\includegraphics{figures/tmpltbank}
@@ -174,7 +171,7 @@ $f^s$ & $[t^s$&$t^{s+1})$ & & \\% [1ex]
 \label{f:gstreamer_pipeline}
 \end{figure}
 
-\section{Acknowledgements}
+\section*{Acknowledgements}
 
 \LIGO\ was constructed by the California Institute of Technology and
 Massachusetts Institute of Technology with funding from the National Science
