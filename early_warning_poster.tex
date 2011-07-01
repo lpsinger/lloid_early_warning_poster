@@ -103,23 +103,23 @@ much less than the number of output channels.}
 	\end{center}
 \end{figure}
 
-\begin{multline}
+\begin{equation*}
 	\rho_i^s [k] =%
 		% Interpolation SNR
 		\overbrace{
 			\left(H^\uparrow \rho_i^{s+1}\right)[k]
-		}^\textrm{\clap{{\sc snr} from previous time slices}} \\
+		}^\text{\clap{{\sc snr} from previous time slices}}
 		% Plus ...
-		+
+		\;+\;
 		% Reconstruction
 		\underbrace{
 			\sum_{\mathclap{l=0}}^{\mathclap{L^s-1}} v_{il}^s \sigma_l^s
-		}_\textrm{\clap{reconstruction}}
+		}_\text{\clap{reconstruction}}
 		% Orthogonal FIR filter
 		\overbrace{
 			\sum_{\mathclap{n=0}}^{\mathclap{N^s-1}} u_l^s[n] x^s[k-n]
-		}^\textrm{\clap{orthogonal {\sc fir} filters}} .
-\end{multline}
+		}^\text{\clap{orthogonal {\sc fir} filters}} .
+\end{equation*}
 
 \section*{Results}
 
