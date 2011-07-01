@@ -1,0 +1,8 @@
+*.aux
+*.bbl
+*.blg
+*.log
+early_warning_poster.pdf
+figures/envelope.pdf
+figures/loc_in_time.pdf
+figures/snr_in_time.pdf
