@@ -16,7 +16,7 @@ import sys
 # Generate plot
 from gstlal.svd_bank import read_bank
 bank = read_bank('data/svd_0_9.xml')
-pylab.figure(figsize=(2.6,2.5))
+pylab.figure(figsize=(6,5))
 ax = pylab.subplot(111)
 legend_artists = []
 legend_labels = []

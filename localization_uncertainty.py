@@ -141,7 +141,7 @@ print r"\tableline"
 print r"\end{tabular}"
 
 
-fig = pylab.figure(figsize=(3,2))
+fig = pylab.figure(figsize=(6,4))
 ax = fig.add_subplot(1,1,1, adjustable='box')
 
 for rate in (40., 10., 1., 0.1):

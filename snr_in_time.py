@@ -44,7 +44,7 @@ def snr_to_num(fracsnr, number=40):
 	return number * (fracsnr)**3
 
 # Start a new figure
-fig = pylab.figure(figsize=(3,2))
+fig = pylab.figure(figsize=(6,4))
 
 markers = ['k-', 'k--', 'k:']
 
