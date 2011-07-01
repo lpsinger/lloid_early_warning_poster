@@ -2,7 +2,6 @@
 
 \usepackage{amsmath}
 \usepackage{amssymb}
-\usepackage{multicol}
 \usepackage{booktabs}
 \usepackage{graphicx}
 \usepackage{microtype}
@@ -27,7 +26,7 @@
 
 \maketitle
 
-\begin{multicols}{3}
+\begin{minipage}[t]{0.25\textwidth}
 
 \section*{Motivation}
 
@@ -83,11 +82,13 @@ Minim pig occaecat magna, tenderloin venison beef. Sint aute chicken corned
 beef. Ball tip ea bresaola proident. In qui cillum in excepteur dolor dolore.
 Non pork loin shankle magna.
 
-\columnbreak
+\end{minipage}%
+\begin{minipage}[t]{0.5\textwidth}
 
 \begin{figure}[h!]
-\includegraphics{figures/lloid-diagram}
-\caption{\label{fig:pipeline} Schematic of \lloid{} pipeline illustrating
+	\begin{center}
+		\includegraphics{figures/lloid-diagram}
+		\caption{\label{fig:pipeline} Schematic of \lloid{} pipeline illustrating
 signal flow.  Circles with arrows represent interpolation
 \protect\includegraphics{figures/upsample-symbol} or decimation
 \protect\includegraphics{figures/downsample-symbol}.  Circles with plus
@@ -98,6 +99,7 @@ rate decreases from the top of the diagram to the bottom.  In this diagram each
 time slice contains three \fir\ filters that are linearly combined to produce
 four output channels.  In a typical pipeline the number of \fir\ filters is
 much less than the number of output channels.}
+	\end{center}
 \end{figure}
 
 \begin{multline}
@@ -122,7 +124,8 @@ much less than the number of output channels.}
 
 \PARstart{A}liquip elit excepteur ut in. Sirloin in pork venison flank. Sausage reprehenderit ball tip dolor venison excepteur bresaola culpa, fatback chuck proident strip steak meatball short loin tongue. Labore pork beef ribs short loin nisi ea. Pastrami laborum nostrud incididunt ut officia. Pancetta elit rump, swine shoulder brisket sunt short ribs eu cow short loin irure anim culpa. Laborum deserunt mollit pork belly rump ground round.
 
-\columnbreak
+\end{minipage}%
+\begin{minipage}[t]{0.25\textwidth}
 
 \section*{Implementation}
 
@@ -171,6 +174,8 @@ $f^s$ & $[t^s$&$t^{s+1})$ & & \\% [1ex]
 \label{f:gstreamer_pipeline}
 \end{figure}
 
+\end{minipage}
+
 \section*{Acknowledgements}
 
 \LIGO\ was constructed by the California Institute of Technology and
@@ -185,7 +190,4 @@ Fellowship to LS.
 \bibliographystyle{plain}
 \bibliography{biblio}
 
-\end{multicols}
-
 \end{document}
-
