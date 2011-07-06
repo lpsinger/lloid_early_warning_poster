@@ -133,8 +133,8 @@
 		\draw[->] (add\i 1) -- (resample\i 1);
 	}
 	
-	\node[draw,color=diagramaccum,fill=white,minimum width=22mm,xshift=1mm,label=right:{\small delay}] at (delay0) {\tiny$z^{-t^1 f^0}$};
-	\node[draw,color=diagramaccum,fill=white,minimum width=22mm,xshift=1mm,label=right:{\small delay}] at (delay1) {\tiny$z^{-(t^2-t^1) f^1}$};
+	\node[draw,color=diagramaccum,fill=diagramaccum!25!white,minimum width=22mm,xshift=1mm,label=right:{\small delay}] at (delay0) {\tiny$z^{-t^1 f^0}$};
+	\node[draw,color=diagramaccum,fill=diagramaccum!25!white,minimum width=22mm,xshift=1mm,label=right:{\small delay}] at (delay1) {\tiny$z^{-(t^2-t^1) f^1}$};
 	\draw[->] (in0) -- (in1);
 	\draw (in1) -- (invdots);
 	\draw[->] (invdots) -- (in2);
