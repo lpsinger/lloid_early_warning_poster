@@ -2,7 +2,7 @@ TEX = env TEXINPUTS=:$(CURDIR)/packages/aastex52:$(CURDIR)/packages/astronat/apj
 BIBTEX = env BSTINPUTS=:$(CURDIR)/packages/astronat/apj: TEXINPUTS=:$(CURDIR)/packages/aastex52:$(CURDIR)/packages/astronat/apj: bibtex
 
 PREREQS = \
-	figures/envelope.pdf figures/snr_in_time.pdf figures/loc_in_time.pdf figures/tmpltbank.pdf figures/lloid-diagram.pdf early_warning_poster.tex references.bib
+	figures/envelope.pdf figures/snr_in_time.pdf figures/loc_in_time.pdf figures/tmpltbank.pdf figures/lloid-diagram.pdf early_warning_poster.tex macros.tex references.bib
 
 early_warning_poster.pdf: $(PREREQS)
 	$(TEX) -draftmode early_warning_poster
