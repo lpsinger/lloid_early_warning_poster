@@ -47,7 +47,7 @@
 
 \tikzstyle{junction}=[draw, fill, circle, line width=0pt, inner sep=0pt, minimum size=3pt]
 \tikzstyle{signal}=[draw, fill=white, circle, inner sep=0pt, minimum size=4pt]
-\tikzstyle{resample}=[draw, circle, line width=1pt, inner sep=0pt, minimum size=0.3cm]
+\tikzstyle{resample}=[draw, fill=white, circle, line width=1pt, inner sep=0pt, minimum size=0.3cm]
 \tikzstyle{vdots}=[xshift=-0.75mm, inner sep=0pt, text width=0pt, minimum size=0pt]
 
 \tikzsetnextfilename{lloid-diagram}
@@ -77,7 +77,7 @@
 		& & & & & \node[vdots]{$\colon$}; & & & & & & \node[vdots]{$\colon$}; \\
 		& & & \node[draw, color=diagramfir, fill=white] (u20) {}; & \node[junction, color=diagramreconstruct] (u20tee) {}; & \node[adder, draw=diagramreconstruct] (v30) {}; & & & & & \node[adder, draw=diagramaccum] (add30) {}; & \node[signal, label=right:{$\rho_{M-1}^0$}] (out30) {}; \\
 		& & & & & & & & \node[minimum height=6mm](delay0){}; & & & \\
-		& & & & & & \node[resample, color=diagramaccum] (resample01) {\tiny$\uparrow$}; & \node[resample, color=diagramaccum] (resample11) {\tiny$\uparrow$}; & \node[resample, color=diagramaccum] (resample21) {\tiny$\uparrow$}; & \node{$\cdot \cdot$}; & \node[resample, color=diagramaccum] (resample31) {\tiny$\uparrow$}; \\
+		& & & & & & \node[resample, draw=diagramaccum] (resample01) {\color{diagramaccum}\tiny$\uparrow$}; & \node[resample, draw=diagramaccum] (resample11) {\color{diagramaccum}\tiny$\uparrow$}; & \node[resample, draw=diagramaccum] (resample21) {\color{diagramaccum}\tiny$\uparrow$}; & \node{$\cdot \cdot$}; & \node[resample, draw=diagramaccum] (resample31) {\color{diagramaccum}\tiny$\uparrow$}; \\
 %
 		& & & \node[draw, color=diagramfir, fill=white] (u01) {}; & \node[junction, color=diagramreconstruct] (u01tee) {}; & \node[adder, draw=diagramreconstruct] (v01) {}; & \node[adder, draw=diagramaccum] (add01) {}; & & & & & \node[signal, label=right:{$\rho_0^1$}] (out01) {}; \\
 		& & & \node[draw, color=diagramfir, fill=white] (u11) {}; & \node[junction, color=diagramreconstruct] (u11tee) {}; & \node[adder, draw=diagramreconstruct] (v11) {}; & & \node[adder, draw=diagramaccum] (add11) {}; & & & & \node[signal, label=right:{$\rho_1^1$}] (out11) {}; \\
@@ -85,7 +85,7 @@
 		& & & & & \node[vdots]{$\colon$}; & & & & & & \node[vdots]{$\colon$}; \\
 		& & & \node[draw, color=diagramfir, fill=white] (u21) {}; & \node[junction, color=diagramreconstruct] (u21tee) {}; & \node[adder, draw=diagramreconstruct] (v31) {}; & & & & & \node[adder, draw=diagramaccum] (add31) {}; & \node[signal, label=right:{$\rho_{M-1}^1$}] (out31) {}; \\
 		& & & & & & & & \node[minimum height=6mm](delay1){}; & & & \\
-		& & & & & & \node[resample, color=diagramaccum] (resample02) {\tiny$\uparrow$}; & \node[resample, color=diagramaccum] (resample12) {\tiny$\uparrow$}; & \node[resample, color=diagramaccum] (resample22) {\tiny$\uparrow$}; & \node{$\cdot \cdot$}; & \node[resample, color=diagramaccum] (resample32) {\tiny$\uparrow$}; \\
+		& & & & & & \node[resample, draw=diagramaccum] (resample02) {\color{diagramaccum}\tiny$\uparrow$}; & \node[resample, draw=diagramaccum] (resample12) {\color{diagramaccum}\tiny$\uparrow$}; & \node[resample, draw=diagramaccum] (resample22) {\color{diagramaccum}\tiny$\uparrow$}; & \node{$\cdot \cdot$}; & \node[resample, draw=diagramaccum] (resample32) {\color{diagramaccum}\tiny$\uparrow$}; \\
 %
 		& \node[minimum size=0pt, text height=8pt, anchor=base] (invdots) {$\vdots$}; & & \node[minimum size=0pt, text height=0pt, anchor=base] {$\vdots$}; & \node[minimum size=0pt, text height=8pt, anchor=base] {$\vdots$}; & \node[minimum size=0pt, text height=8pt, anchor=base] {$\vdots$}; & \node[minimum height=8pt]{}; & & & & & \node[minimum size=0pt, text height=0pt, anchor=base] {$\vdots$}; \\
 		& & & & & & \node[minimum size=0pt, text height=8pt] (vdots0) {$\vdots$}; & \node[minimum size=0pt, text height=8pt] (vdots1) {$\vdots$}; & \node[minimum size=0pt, text height=8pt] (vdots2) {$\vdots$}; & & \node[minimum size=0pt, text height=8pt] (vdots3) {$\vdots$}; \\
