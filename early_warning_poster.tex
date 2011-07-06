@@ -80,7 +80,7 @@ There were a number of sources of latency associated with the search for
 \begin{figure}[h!]
 	\begin{center}
 		\includegraphics[width=\textwidth]{figures/lloid-diagram}
-		\caption{\label{fig:pipeline} Schematic of \lloid{} pipeline illustrating
+		\caption{\label{fig:pipeline} Schematic of \lloid{} algorithm illustrating
 signal flow.  Circles with arrows represent interpolation
 \protect\includegraphics[scale=3]{figures/upsample-symbol} or decimation
 \protect\includegraphics[scale=3]{figures/downsample-symbol}.  Circles with plus
@@ -121,10 +121,10 @@ much less than the number of output channels.}
 \toprule
 method & \flops\ & latency (s) \\
 \midrule
-time domain & $2.4\times10^{13}$ & 0 \\
+time domain & $2.4\times10^{13}$ & $0$ \\
 frequency domain & $2.6\times10^8$ & $2\times10^3$ \\
 \lloid\ (theory) & $4.7\times10^8$ & $2\times10^{-3}$ \\
-\lloid\ (prototype) & ----------- & 5 \\
+\lloid\ (prototype) & ----------- & $5$ \\
 \bottomrule
 \end{tabular}
 \end{center}
@@ -144,6 +144,10 @@ advanced detector era.
 \begin{minipage}[t]{0.25\textwidth}
 
 \section*{Implementation}
+
+\PARstart{A}ccuracy and latency are critical parameters to measure. We employ a
+\gstreamer{}-based implementation of the \lloid{} algorithm. Below are the
+masses used for the test and the resulting time-slice design.
 
 \begin{figure}[h]
 	\includegraphics[width=\textwidth]{figures/tmpltbank}
@@ -177,28 +181,21 @@ $f^s$ & $[t^s$&$t^{s+1})$ & & \\% [1ex]
 32 & [844.5&1100.5) & 8192 & 12 \\
 \bottomrule
 \end{tabular}
-\caption{\label{tab:time_slices} Filter design sub-bank of 657 templates.  From left to right, this table shows the sample rate, time interval, number of samples, and number of orthogonal templates for each time slice.  The \SVD{} tolerance is set to $0.9999$.}
+\caption{\label{tab:time_slices} Filter design sub-bank of 657 templates.  From left to right, this table shows the sample rate, time interval, number of samples, and number of orthogonal templates for each time slice.  The \SVD{} tolerance is set to 0.9999.}
 \end{table}
-
-
-\begin{figure}
-\centering
-%\includegraphics{olapredfcn}
-%\put(-450,350){\huge Placeholder}
-%\includegraphics{likelihoods}
-\caption{GStreamer pipeline.}
-\label{f:gstreamer_pipeline}
-\end{figure}
 
 \end{minipage}
 
 \section*{Acknowledgements}
 
-\LIGO\ was constructed by the California Institute of Technology and
-Massachusetts Institute of Technology with funding from the National Science
-Foundation and operates under cooperative agreement
-\textsc{phy}-\oldstylenums{0107417}. This research
-is supported by the National Science Foundation through a Graduate Research
+This poster was prepared by NF and LS based on a preprint article designated
+LIGO-P0900004 and authored by Kipp Cannon, Romain Cariou, Mireia
+Crispin-Ortuzar, NF, Melissa Frei, Chad Hann, Erin Kara, Drew Keppel, Laura
+Liao, Stephen Privitera, LS, and Alan Weinstein. \LIGO\ was constructed by the
+California Institute of Technology and Massachusetts Institute of Technology
+with funding from the National Science Foundation and operates under
+cooperative agreement \textsc{phy}-\oldstylenums{0107417}. This research is
+supported by the National Science Foundation through a Graduate Research
 Fellowship to LS.
 
 %%% References
