@@ -10,7 +10,7 @@ early_warning_poster.pdf: $(PREREQS)
 	$(TEX) -draftmode early_warning_poster
 	$(TEX) early_warning_poster
 
-figures/lloid-diagram.pdf: figures/diagram.tex
+figures/lloid-diagram.pdf: figures/diagram.tex macros.tex
 	$(MAKE) -C figures $(@F)
 
 figures/envelope.pdf: envelope.py

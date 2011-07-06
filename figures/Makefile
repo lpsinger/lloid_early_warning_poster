@@ -5,7 +5,7 @@ all: $(foreach X,$(FIGURES),$X.pdf)
 
 .INTERMEDIATE: diagram.pdf
 
-diagram.pdf: diagram.tex
+diagram.pdf: diagram.tex ../macros.tex
 	$(TEX) diagram
 
 $(foreach X,$(FIGURES),$X.pdf): diagram.pdf
