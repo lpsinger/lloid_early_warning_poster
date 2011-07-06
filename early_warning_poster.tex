@@ -20,12 +20,12 @@
 
 \author{\textsc{Nickolas V. Fotopoulos}, Leo P. Singer}
 
-\institute{LIGO Laboratory, California Institute of Technology}
+\institute{\LIGO{} Laboratory, California Institute of Technology}
 
 \email{foton@caltech.edu}
 
 \begin{document}
-\conference{Amaldi 9, Cardiff, Wales, UK; This document bears the DCC number LIGO-G1100683-v1.}
+\conference{Amaldi 9, Cardiff, Wales, UK; This document bears the \textsc{dcc} number \LIGO{}-\textsc{g}\oldstylenums{1100683}-v\oldstylenums{1}.}
 
 \maketitle
 
@@ -33,7 +33,7 @@
 
 \section*{Motivation}
 
-\PARstart{A}s a compact binary system loses energy to gravitational waves (\GW{}s), its
+\PARstart{A}{s} a compact binary system loses energy to gravitational waves (\GW{}s), its
 orbital separation decays, leading to a runaway inspiral with the \GW{}
 amplitude and frequency increasing until the system eventually merges.  If a
 neutron star (\textsc{ns}) is involved, it may become tidally disrupted near
@@ -79,6 +79,8 @@ There were a number of sources of latency associated with the search for
 \hspace{0.05\textwidth}%
 \begin{minipage}[t]{0.4\textwidth}
 
+\section*{The \lloid{} algorithm}
+
 \begin{figure}[h!]
 	\begin{center}
 		\includegraphics[width=\textwidth]{figures/lloid-diagram}
@@ -117,10 +119,10 @@ much less than the number of output channels.}
 		}^\text{\clap{orthogonal {\sc fir} filters}} .
 \end{equation*}
 
-\section*{Results}
+\section*{Results and conclusion}
 
 \begin{table}
-\caption{\label{table:flops}Computational cost in \flops\ of the \TD\ method, the \FD\ method, and \lloid\ for the sub-bank described in Figure~\ref{fig:tmpltbank}.}
+\caption{\label{table:flops}Computational cost and latency of the \TD\ method, the \FD\ method, and \lloid.}
 \begin{center}
 \begin{tabular}{lll}
 \toprule
@@ -135,7 +137,7 @@ frequency domain & $2.6\times10^8$ & $2\times10^3$ \\
 \end{center}
 \end{table}
 
-\PARstart{W}e have demonstrated a computationally feasible filtering algorithm
+\PARstart{W}{e} have demonstrated a computationally feasible filtering algorithm
 for the rapid and even early-warning detection of \GW{}s emitted during the
 coalescence of neutron stars and stellar-mass black holes.  It is one part
 of a complicated analysis and observation strategy that will unfortunately
@@ -150,17 +152,18 @@ to catch prompt emission in the advanced detector era.
 
 \section*{Implementation}
 
-\PARstart{A}ccuracy and latency are critical parameters to verify. We present
-measurements based on a \gstreamer{}-based prototype of the \lloid{}
-algorithm. Figures \ref{fig:tmpltbank} and \ref{fig:time_slices} and
-Table~\ref{tab:time_slices} depict the masses used for the test and the
-resulting time-slice design.
+\PARstart{A}{ccuracy} and latency are critical parameters. Figures
+\ref{fig:tmpltbank} and \ref{fig:time_slices} and Table~\ref{tab:time_slices}
+depict the masses used for the test and the resulting time-slice design. The
+\SVD{} tolerance is set to 0.9999, which guarantees a fractional \SNR{} loss
+less than 0.003. Table~\ref{table:flops} in Results summarizes measurements of
+latency for a fixed accuracy based on a \gstreamer{}-based prototype of the
+\lloid{} algorithm.
 
 \begin{figure}[h]
 	\includegraphics[width=\textwidth]{figures/tmpltbank}
 	\caption{\label{fig:tmpltbank}Source parameters selected for sub-bank used in this
-case study, consisting of component masses $m_1$, $m_2$, between 1 and 3~$M_\odot$, and
-chirp masses $\mathcal{M}$ between 1.1955 and 1.2045~$M_\odot$.}
+case study.}
 \end{figure}
 
 \begin{figure}
@@ -168,43 +171,44 @@ chirp masses $\mathcal{M}$ between 1.1955 and 1.2045~$M_\odot$.}
 \caption{\label{fig:time_slices} Time slice parameters overlaid onto a representative waveform amplitude envelope.}
 \end{figure}
 
-\begin{table}
-\centering
-\begin{tabular}{rr@{,\,}lcc}
-\toprule
-\\ [-2ex]
-$f^s$ & $[t^s$&$t^{s+1})$ & & \\% [1ex]
-\\[-2.5ex]
-(Hz) & \multicolumn{2}{c}{(s)} & $N^s$ & $L^s$ \\ \midrule
-4096 & [0&0.5) & 2048 & 8 \\
-512 & [0.5&4.5) & 2048 & 10 \\
-256 & [4.5&12.5) & 2048 & 10 \\
-128 & [12.5&76.5) & 8192 & 28 \\
-64 & [76.5&140.5) & 4096 & 18 \\
-64 & [140.5&268.5) & 8192 & 25 \\
-64 & [268.5&396.5) & 8192 & 20 \\
-32 & [396.5&460.5) & 2048 & 9 \\
-32 & [460.5&588.5) & 4096 & 16 \\
-32 & [588.5&844.5) & 8192 & 26 \\
-32 & [844.5&1100.5) & 8192 & 12 \\
-\bottomrule
-\end{tabular}
-\caption{\label{tab:time_slices} Filter design sub-bank of 657 templates.  From left to right, this table shows the sample rate, time interval, number of samples, and number of orthogonal templates for each time slice.  The \SVD{} tolerance is set to 0.9999.}
-\end{table}
+%\begin{table}
+%\centering
+%\begin{tabular}{rr@{,\,}lcc}
+%\toprule
+%\\ [-2ex]
+%$f^s$ & $[t^s$&$t^{s+1})$ & & \\% [1ex]
+%\\[-2.5ex]
+%(Hz) & \multicolumn{2}{c}{(s)} & $N^s$ & $L^s$ \\ \midrule
+%4096 & [0&0.5) & 2048 & 8 \\
+%512 & [0.5&4.5) & 2048 & 10 \\
+%256 & [4.5&12.5) & 2048 & 10 \\
+%128 & [12.5&76.5) & 8192 & 28 \\
+%64 & [76.5&140.5) & 4096 & 18 \\
+%64 & [140.5&268.5) & 8192 & 25 \\
+%64 & [268.5&396.5) & 8192 & 20 \\
+%32 & [396.5&460.5) & 2048 & 9 \\
+%32 & [460.5&588.5) & 4096 & 16 \\
+%32 & [588.5&844.5) & 8192 & 26 \\
+%32 & [844.5&1100.5) & 8192 & 12 \\
+%\bottomrule
+%\end{tabular}
+%\caption{\label{tab:time_slices} Filter design sub-bank of 657 templates.  From left to right, this table shows the sample rate, time interval, number of samples, and number of orthogonal templates for each time slice.}
+%\end{table}
+
 
 \end{minipage}
 
 \section*{Acknowledgements}
 
 This poster was prepared by \textsc{nf} and \textsc{ls} based on a preprint
-article designated LIGO-P0900004 and authored by Kipp Cannon, Romain Cariou,
-Mireia Crispin-Ortuzar, \textsc{nf}, Melissa Frei, Chad Hann, Erin Kara, Drew
-Keppel, Laura Liao, Stephen Privitera, \textsc{ls}, and Alan Weinstein. \LIGO\
-was constructed by the California Institute of Technology and Massachusetts
-Institute of Technology with funding from the National Science Foundation and
-operates under cooperative agreement \textsc{phy}-\oldstylenums{0107417}. This
-research is supported by the National Science Foundation through a Graduate
-Research Fellowship to \textsc{ls}.
+article designated \LIGO{}-\textsc{p}\oldstylenums{0900004} and authored by
+Kipp Cannon, Romain Cariou, Mireia Crispin-Ortuzar, \textsc{nf}, Melissa Frei,
+Chad Hanna, Erin Kara, Drew Keppel, Laura Liao, Stephen Privitera, \textsc{ls},
+and Alan Weinstein. \LIGO\ was constructed by the California Institute of
+Technology and Massachusetts Institute of Technology with funding from the
+National Science Foundation and operates under cooperative agreement
+\textsc{phy}-\oldstylenums{0107417}. This research is supported by the National
+Science Foundation through a Graduate Research Fellowship to \textsc{ls}.
 
 %%% References
 
