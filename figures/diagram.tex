@@ -1,5 +1,4 @@
 \documentclass{amsart}
-\input{../macros}
 \usepackage{tikz}
 \usepackage{concmath}
 \usetikzlibrary{external,decorations.pathreplacing,matrix,fit,calc,chains,scopes}
@@ -43,6 +42,7 @@
 \usetikzlibrary{signalflowoperators}
 
 
+\input{../macros}
 \begin{document}
 
 \tikzstyle{junction}=[draw, fill, circle, line width=0pt, inner sep=0pt, minimum size=3pt]
@@ -71,43 +71,43 @@
 		column 11/.style={column sep=8mm}
 	]{
 		& \node[yshift=0.5cm](in){}; & \node[yshift=0.5cm](intee){}; & \node[yshift=0.5cm](u){}; & \node[yshift=0.5cm](utee){}; & \node[yshift=0.5cm](v){}; & \node[yshift=0.5cm](add0){}; & \node[yshift=0.5cm](add1){}; & \node[yshift=0.5cm](add2){}; & & \node[yshift=0.5cm](add3){}; & \node[yshift=0.5cm](out){}; \\
-		& & & \node[draw, color=\diagramcolorfir] (u00) {}; & \node[junction, color=\diagramcolorreconstruct] (u00tee) {}; & \node[adder, draw=\diagramcolorreconstruct] (v00) {}; & \node[adder, draw=\diagramcoloraccum] (add00) {}; & & & & & \node[signal, label=right:{$\rho_0^0$}] (out00) {}; \\
-		& & & \node[draw, color=\diagramcolorfir] (u10) {}; & \node[junction, color=\diagramcolorreconstruct] (u10tee) {}; & \node[adder, draw=\diagramcolorreconstruct] (v10) {}; & & \node[adder, draw=\diagramcoloraccum] (add10) {}; & & & & \node[signal, label=right:{$\rho_1^0$}] (out10) {}; \\
-		\node[signal, label=left:{$x$}] (x) {}; & \node[junction] (in0) {}; & \node[junction, color=\diagramcolorfir] (in0tee) {}; & & & \node[adder, draw=\diagramcolorreconstruct] (v20) {}; & & & \node[adder, draw=\diagramcoloraccum] (add20) {}; & & & \node[signal, label=right:{$\rho_2^0$}] (out20) {}; \\
+		& & & \node[draw, color=diagramfir] (u00) {}; & \node[junction, color=diagramreconstruct] (u00tee) {}; & \node[adder, draw=diagramreconstruct] (v00) {}; & \node[adder, draw=diagramaccum] (add00) {}; & & & & & \node[signal, label=right:{$\rho_0^0$}] (out00) {}; \\
+		& & & \node[draw, color=diagramfir] (u10) {}; & \node[junction, color=diagramreconstruct] (u10tee) {}; & \node[adder, draw=diagramreconstruct] (v10) {}; & & \node[adder, draw=diagramaccum] (add10) {}; & & & & \node[signal, label=right:{$\rho_1^0$}] (out10) {}; \\
+		\node[signal, label=left:{$x$}] (x) {}; & \node[junction] (in0) {}; & \node[junction, color=diagramfir] (in0tee) {}; & & & \node[adder, draw=diagramreconstruct] (v20) {}; & & & \node[adder, draw=diagramaccum] (add20) {}; & & & \node[signal, label=right:{$\rho_2^0$}] (out20) {}; \\
 		& & & & & \node[vdots]{$\colon$}; & & & & & & \node[vdots]{$\colon$}; \\
-		& & & \node[draw, color=\diagramcolorfir] (u20) {}; & \node[junction, color=\diagramcolorreconstruct] (u20tee) {}; & \node[adder, draw=\diagramcolorreconstruct] (v30) {}; & & & & & \node[adder, draw=\diagramcoloraccum] (add30) {}; & \node[signal, label=right:{$\rho_{M-1}^0$}] (out30) {}; \\
+		& & & \node[draw, color=diagramfir] (u20) {}; & \node[junction, color=diagramreconstruct] (u20tee) {}; & \node[adder, draw=diagramreconstruct] (v30) {}; & & & & & \node[adder, draw=diagramaccum] (add30) {}; & \node[signal, label=right:{$\rho_{M-1}^0$}] (out30) {}; \\
 		& & & & & & & & \node[minimum height=6mm](delay0){}; & & & \\
-		& & & & & & \node[resample, color=\diagramcoloraccum] (resample01) {\tiny$\uparrow$}; & \node[resample, color=\diagramcoloraccum] (resample11) {\tiny$\uparrow$}; & \node[resample, color=\diagramcoloraccum] (resample21) {\tiny$\uparrow$}; & \node{$\cdot \cdot$}; & \node[resample, color=\diagramcoloraccum] (resample31) {\tiny$\uparrow$}; \\
+		& & & & & & \node[resample, color=diagramaccum] (resample01) {\tiny$\uparrow$}; & \node[resample, color=diagramaccum] (resample11) {\tiny$\uparrow$}; & \node[resample, color=diagramaccum] (resample21) {\tiny$\uparrow$}; & \node{$\cdot \cdot$}; & \node[resample, color=diagramaccum] (resample31) {\tiny$\uparrow$}; \\
 %
-		& & & \node[draw, color=\diagramcolorfir] (u01) {}; & \node[junction, color=\diagramcolorreconstruct] (u01tee) {}; & \node[adder, draw=\diagramcolorreconstruct] (v01) {}; & \node[adder, draw=\diagramcoloraccum] (add01) {}; & & & & & \node[signal, label=right:{$\rho_0^1$}] (out01) {}; \\
-		& & & \node[draw, color=\diagramcolorfir] (u11) {}; & \node[junction, color=\diagramcolorreconstruct] (u11tee) {}; & \node[adder, draw=\diagramcolorreconstruct] (v11) {}; & & \node[adder, draw=\diagramcoloraccum] (add11) {}; & & & & \node[signal, label=right:{$\rho_1^1$}] (out11) {}; \\
-		& \node[resample] (in1) {\tiny$\downarrow$}; & \node[junction, color=\diagramcolorfir] (in1tee) {}; & & & \node[adder, draw=\diagramcolorreconstruct] (v21) {}; & & & \node[adder, draw=\diagramcoloraccum] (add21) {}; & & & \node[signal, label=right:{$\rho_2^1$}] (out21) {}; \\
+		& & & \node[draw, color=diagramfir] (u01) {}; & \node[junction, color=diagramreconstruct] (u01tee) {}; & \node[adder, draw=diagramreconstruct] (v01) {}; & \node[adder, draw=diagramaccum] (add01) {}; & & & & & \node[signal, label=right:{$\rho_0^1$}] (out01) {}; \\
+		& & & \node[draw, color=diagramfir] (u11) {}; & \node[junction, color=diagramreconstruct] (u11tee) {}; & \node[adder, draw=diagramreconstruct] (v11) {}; & & \node[adder, draw=diagramaccum] (add11) {}; & & & & \node[signal, label=right:{$\rho_1^1$}] (out11) {}; \\
+		& \node[resample] (in1) {\tiny$\downarrow$}; & \node[junction, color=diagramfir] (in1tee) {}; & & & \node[adder, draw=diagramreconstruct] (v21) {}; & & & \node[adder, draw=diagramaccum] (add21) {}; & & & \node[signal, label=right:{$\rho_2^1$}] (out21) {}; \\
 		& & & & & \node[vdots]{$\colon$}; & & & & & & \node[vdots]{$\colon$}; \\
-		& & & \node[draw, color=\diagramcolorfir] (u21) {}; & \node[junction, color=\diagramcolorreconstruct] (u21tee) {}; & \node[adder, draw=\diagramcolorreconstruct] (v31) {}; & & & & & \node[adder, draw=\diagramcoloraccum] (add31) {}; & \node[signal, label=right:{$\rho_{M-1}^1$}] (out31) {}; \\
+		& & & \node[draw, color=diagramfir] (u21) {}; & \node[junction, color=diagramreconstruct] (u21tee) {}; & \node[adder, draw=diagramreconstruct] (v31) {}; & & & & & \node[adder, draw=diagramaccum] (add31) {}; & \node[signal, label=right:{$\rho_{M-1}^1$}] (out31) {}; \\
 		& & & & & & & & \node[minimum height=6mm](delay1){}; & & & \\
-		& & & & & & \node[resample, color=\diagramcoloraccum] (resample02) {\tiny$\uparrow$}; & \node[resample, color=\diagramcoloraccum] (resample12) {\tiny$\uparrow$}; & \node[resample, color=\diagramcoloraccum] (resample22) {\tiny$\uparrow$}; & \node{$\cdot \cdot$}; & \node[resample, color=\diagramcoloraccum] (resample32) {\tiny$\uparrow$}; \\
+		& & & & & & \node[resample, color=diagramaccum] (resample02) {\tiny$\uparrow$}; & \node[resample, color=diagramaccum] (resample12) {\tiny$\uparrow$}; & \node[resample, color=diagramaccum] (resample22) {\tiny$\uparrow$}; & \node{$\cdot \cdot$}; & \node[resample, color=diagramaccum] (resample32) {\tiny$\uparrow$}; \\
 %
 		& \node[minimum size=0pt, text height=8pt, anchor=base] (invdots) {$\vdots$}; & & \node[minimum size=0pt, text height=0pt, anchor=base] {$\vdots$}; & \node[minimum size=0pt, text height=8pt, anchor=base] {$\vdots$}; & \node[minimum size=0pt, text height=8pt, anchor=base] {$\vdots$}; & \node[minimum height=8pt]{}; & & & & & \node[minimum size=0pt, text height=0pt, anchor=base] {$\vdots$}; \\
 		& & & & & & \node[minimum size=0pt, text height=8pt] (vdots0) {$\vdots$}; & \node[minimum size=0pt, text height=8pt] (vdots1) {$\vdots$}; & \node[minimum size=0pt, text height=8pt] (vdots2) {$\vdots$}; & & \node[minimum size=0pt, text height=8pt] (vdots3) {$\vdots$}; \\
 %
-		& & & \node[draw, color=\diagramcolorfir] (u02) {}; & \node[junction, color=\diagramcolorreconstruct] (u02tee) {}; & \node[adder, draw=\diagramcolorreconstruct] (v02) {}; & \node[junction, color=\diagramcoloraccum] (add02) {}; & & & & & \node[signal, label=right:{$\rho_0^{S-1}$}] (out02) {}; \\
-		& & & \node[draw, color=\diagramcolorfir] (u12) {}; & \node[junction, color=\diagramcolorreconstruct] (u12tee) {}; & \node[adder, draw=\diagramcolorreconstruct] (v12) {}; & & \node[junction, color=\diagramcoloraccum] (add12) {}; & & & & \node[signal, label=right:{$\rho_1^{S-1}$}] (out12) {}; \\
-		& \node[junction] (in2) {}; & \node[junction, color=\diagramcolorfir] (in2tee) {}; & & & \node[adder, draw=\diagramcolorreconstruct] (v22) {}; & & & \node[junction, color=\diagramcoloraccum] (add22) {}; & & & \node[signal, label=right:{$\rho_2^{S-1}$}] (out22) {}; \\
+		& & & \node[draw, color=diagramfir] (u02) {}; & \node[junction, color=diagramreconstruct] (u02tee) {}; & \node[adder, draw=diagramreconstruct] (v02) {}; & \node[junction, color=diagramaccum] (add02) {}; & & & & & \node[signal, label=right:{$\rho_0^{S-1}$}] (out02) {}; \\
+		& & & \node[draw, color=diagramfir] (u12) {}; & \node[junction, color=diagramreconstruct] (u12tee) {}; & \node[adder, draw=diagramreconstruct] (v12) {}; & & \node[junction, color=diagramaccum] (add12) {}; & & & & \node[signal, label=right:{$\rho_1^{S-1}$}] (out12) {}; \\
+		& \node[junction] (in2) {}; & \node[junction, color=diagramfir] (in2tee) {}; & & & \node[adder, draw=diagramreconstruct] (v22) {}; & & & \node[junction, color=diagramaccum] (add22) {}; & & & \node[signal, label=right:{$\rho_2^{S-1}$}] (out22) {}; \\
 		& & & & & \node[vdots]{$\colon$}; & & & & & & \node[vdots]{$\colon$}; \\
-		& & & \node[draw, color=\diagramcolorfir] (u22) {}; & \node[junction, color=\diagramcolorreconstruct] (u22tee) {}; & \node[adder, draw=\diagramcolorreconstruct] (v32) {}; & & & & & \node[junction, color=\diagramcoloraccum] (add32) {}; & \node[signal, label=right:{$\rho_{M-1}^{S-1}$}] (out32) {}; \\
+		& & & \node[draw, color=diagramfir] (u22) {}; & \node[junction, color=diagramreconstruct] (u22tee) {}; & \node[adder, draw=diagramreconstruct] (v32) {}; & & & & & \node[junction, color=diagramaccum] (add32) {}; & \node[signal, label=right:{$\rho_{M-1}^{S-1}$}] (out32) {}; \\
 	};
 
 	\foreach \i in {0,1,2} {
 		\draw[loosely dotted] ($0.3*(add2\i) + 0.7*(add3\i)$) -- ($0.7*(add2\i) + 0.3*(add3\i)$);
-		\node[draw,dashed,line width=0.5pt,fit=(in\i tee) (u0\i) (u2\i), color=\diagramcolorfir] {};
-		\node[draw,dashed,line width=0.5pt,yshift=0.5mm,fit=(u0\i tee) (v3\i), color=\diagramcolorreconstruct] {};
+		\node[draw,dashed,line width=0.5pt,fit=(in\i tee) (u0\i) (u2\i), color=diagramfir] {};
+		\node[draw,dashed,line width=0.5pt,yshift=0.5mm,fit=(u0\i tee) (v3\i), color=diagramreconstruct] {};
 		\foreach \j in {0,1,2,3}
 			\foreach \k in {0,1,2} {
-				\draw[color=\diagramcolorreconstruct] (u\k \i tee) -- (v\j \i);
+				\draw[color=diagramreconstruct] (u\k \i tee) -- (v\j \i);
 				\draw[->] (v\j \i) -- (add\j \i);
 			}
 		\foreach \k in {0,1,2} {
-			\draw[color=\diagramcolorfir] (in\i tee) |- (u\k \i);
+			\draw[color=diagramfir] (in\i tee) |- (u\k \i);
 			\draw (u\k \i) -- (u\k \i tee);
 		}
 		\node[vdots] at ($0.5*(u1\i tee) + 0.5*(u2\i tee)$) {$\vdots$};
@@ -133,17 +133,17 @@
 		\draw[->] (add\i 1) -- (resample\i 1);
 	}
 	
-	\node[draw,color=\diagramcoloraccum,fill=white,minimum width=22mm,xshift=1mm,label=right:{\small delay}] at (delay0) {\tiny$z^{-t^1 f^0}$};
-	\node[draw,color=\diagramcoloraccum,fill=white,minimum width=22mm,xshift=1mm,label=right:{\small delay}] at (delay1) {\tiny$z^{-(t^2-t^1) f^1}$};
+	\node[draw,color=diagramaccum,fill=white,minimum width=22mm,xshift=1mm,label=right:{\small delay}] at (delay0) {\tiny$z^{-t^1 f^0}$};
+	\node[draw,color=diagramaccum,fill=white,minimum width=22mm,xshift=1mm,label=right:{\small delay}] at (delay1) {\tiny$z^{-(t^2-t^1) f^1}$};
 	\draw[->] (in0) -- (in1);
 	\draw (in1) -- (invdots);
 	\draw[->] (invdots) -- (in2);
 	\draw[->] (x) -- (in0);
 
 	\draw[decorate, decoration={brace, amplitude=4pt}] ($(in)+(-4mm,0)$) -- ($(in)+(4mm,0)$) node[midway,above=2mm,align=center] {Decimation \\ of input};
-	\draw[decorate, color=\diagramcolorfir, decoration={brace, amplitude=4pt}] ($(intee)+(-2mm,0)$) -- ($(u)+(2mm,0)$) node[midway,above=2mm,align=center] {Orthogonal \\ \textsc{fir} filters};
-	\draw[decorate, color=\diagramcolorreconstruct, decoration={brace, amplitude=4pt}] ($(utee)+(-2mm,0)$) -- ($(v)+(2mm,0)$) node[midway,above=2mm,align=center] {Reconstruction \\ matrices};
-	\draw[decorate, color=\diagramcoloraccum, decoration={brace, amplitude=4pt}] ($(add0)+(-2mm,0)$) -- ($(add3)+(2mm,0)$) node[midway,above=2mm,align=center] {Interpolation and \\ \textsc{snr} accumulation};
+	\draw[decorate, color=diagramfir, decoration={brace, amplitude=4pt}] ($(intee)+(-2mm,0)$) -- ($(u)+(2mm,0)$) node[midway,above=2mm,align=center] {Orthogonal \\ \textsc{fir} filters};
+	\draw[decorate, color=diagramreconstruct, decoration={brace, amplitude=4pt}] ($(utee)+(-2mm,0)$) -- ($(v)+(2mm,0)$) node[midway,above=2mm,align=center] {Reconstruction \\ matrices};
+	\draw[decorate, color=diagramaccum, decoration={brace, amplitude=4pt}] ($(add0)+(-2mm,0)$) -- ($(add3)+(2mm,0)$) node[midway,above=2mm,align=center] {Interpolation and \\ \textsc{snr} accumulation};
 \end{tikzpicture}
 
 

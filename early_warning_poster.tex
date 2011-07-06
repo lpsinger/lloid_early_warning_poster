@@ -101,19 +101,19 @@ much less than the number of output channels.}
 \begin{equation*}
 	\rho_i^s [k] =%
 		% Interpolation SNR
-		\color{\diagramcoloraccum}
+		\color{diagramaccum}
 		\overbrace{
 			\left(H^\uparrow \rho_i^{s+1}\right)[k]
 		}^\text{\clap{{\sc snr} from prev. time slices}}
 		% Plus ...
 		\;\;+\;\;
 		% Reconstruction
-		\color{\diagramcolorreconstruct}
+		\color{diagramreconstruct}
 		\underbrace{
 			\sum_{l=0}^{L^s-1} v_{il}^s \sigma_l^s
 		}_\text{\clap{reconstruction}}
 		% Orthogonal FIR filter
-		\color{\diagramcolorfir}
+		\color{diagramfir}
 		\;\overbrace{
 			\sum_{n=0}^{N^s-1} u_l^s[n] \color{black}x^s[k-n]
 		}^\text{\clap{orthogonal {\sc fir} filters}} .
