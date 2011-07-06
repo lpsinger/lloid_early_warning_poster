@@ -5,6 +5,7 @@
 \usepackage{booktabs}
 \usepackage{graphicx}
 \usepackage{microtype}
+\usepackage{aas_macros}
 
 \input{macros}
 
@@ -30,13 +31,14 @@
 
 \section*{Motivation}
 
-\PARstart{B}acon ipsum dolor sit amet reprehenderit minim tongue, pork nostrud
-ham hock ea est salami shoulder commodo bresaola tenderloin pork belly id.
-Fugiat sausage cillum in nostrud. Jowl consequat ground round, non incididunt
-rump excepteur tongue voluptate pork loin ut brisket velit veniam. Dolore non
-magna, pork belly voluptate eiusmod ut anim. Quis qui cow biltong, in ea salami
-reprehenderit pork belly. Sirloin do shankle minim elit. Sunt fugiat t-bone
-corned beef ut, excepteur aliqua eu meatloaf.
+\PARstart{A}s a compact binary system loses energy to gravitational waves (\GW{}s), its
+orbital separation decays, leading to a runaway inspiral with the \GW{}
+amplitude and frequency increasing until the system eventually merges.  If a
+neutron star (\textsc{ns}) is involved, it may become tidally disrupted near
+the merger and fuel an electromagnetic (\EM{}) counterpart~%
+\cite{shibata:2007}.  Effort from both the \GW{} and astronomy communities may make it
+possible to use \GW{} observations as an early warning trigger for \EM{}
+followup.
 %
 \begin{figure}[h]
 \includegraphics[width=\textwidth]{figures/snr_in_time}
@@ -44,7 +46,7 @@ corned beef ut, excepteur aliqua eu meatloaf.
 sources that could be detectable by Advanced \LIGO\ a given number of seconds
 before coalescence.  The heavy solid line is the most realistic yearly rate
 estimate.  The shaded region represents the 5 to 95\% confidence interval
-arising from uncertainty in predicted event rates \cite{Abadie:2010p10836}.}
+arising from uncertainty in predicted event rates~\cite{Abadie:2010p10836}.}
 \end{figure}
 %
 \begin{figure}[h]
@@ -55,25 +57,21 @@ detectability rates of 40, 10, 1, and 0.1~yr$^{-1}$. The heavy dot indicates
 the time at which the accumulated \SNR\ exceeds a threshold of~8.}
 \end{figure}
 
-Et shoulder tongue commodo corned beef. Flank ground round mollit est, in
-salami do swine meatloaf aliqua non pancetta ham ea. Ut salami id venison rump
-esse. Incididunt ribeye occaecat, short loin beef sint bacon cupidatat
-hamburger shank. Ribeye eiusmod strip steak, drumstick pariatur enim spare ribs
-t-bone meatloaf aliquip bacon occaecat sunt pork chop. Drumstick commodo jerky
-pork loin incididunt, ground round beef ribs. Fatback elit ground round
-drumstick ribeye, ham mollit adipisicing labore bresaola.
+There were a number of sources of latency associated with the search for
+\CBC{} signals in S6/VSR3~\cite{HugheyGWPAW2011}:
 
-\begin{figure}
-%\includegraphics{olapredfcn}
-%\put(-450,350){\huge Placeholder}
-\caption{Latency time-line}
-\label{f:latency_timeline}
-\end{figure}
+\begin{itemize}
+\item Data acquisition and aggregation ($\gtrsim$100~ms)
 
-Incididunt tempor commodo adipisicing nisi nulla, short ribs ham non dolor
-nostrud spare ribs cow. Enim rump anim eu deserunt officia, veniam shankle
-meatloaf et. Chicken id voluptate cupidatat bacon chuck. Incididunt salami elit
-pork loin pork chop.
+\item Data conditioning ($\sim$1~min)
+
+\item Trigger generation (2--5~min)
+
+\item Alert generation (2--3~min)
+
+\item Human validation (10--20~min)
+
+\end{itemize}
 
 \end{minipage}%
 \hspace{0.05\textwidth}%
@@ -82,7 +80,7 @@ pork loin pork chop.
 \begin{figure}[h!]
 	\begin{center}
 		\includegraphics[width=\textwidth]{figures/lloid-diagram}
-		\caption{\label{fig:pipeline} Schematic of \lloid{} pipeline illustrating
+		\caption{\label{fig:pipeline} Schematic of \lloid{} algorithm illustrating
 signal flow.  Circles with arrows represent interpolation
 \protect\includegraphics[scale=3]{figures/upsample-symbol} or decimation
 \protect\includegraphics[scale=3]{figures/downsample-symbol}.  Circles with plus
@@ -116,13 +114,42 @@ much less than the number of output channels.}
 
 \section*{Results}
 
-\PARstart{A}liquip elit excepteur ut in. Sirloin in pork venison flank. Sausage reprehenderit ball tip dolor venison excepteur bresaola culpa, fatback chuck proident strip steak meatball short loin tongue. Labore pork beef ribs short loin nisi ea. Pastrami laborum nostrud incididunt ut officia. Pancetta elit rump, swine shoulder brisket sunt short ribs eu cow short loin irure anim culpa. Laborum deserunt mollit pork belly rump ground round.
+\begin{table}
+\caption{\label{table:flops}Computational cost in \flops\ of the \TD\ method, the \FD\ method, and \lloid\ for the sub-bank described in Figure~\ref{fig:tmpltbank}.}
+\begin{center}
+\begin{tabular}{lll}
+\toprule
+method & \flops\ & latency (s) \\
+\midrule
+time domain & $2.4\times10^{13}$ & $0$ \\
+frequency domain & $2.6\times10^8$ & $2\times10^3$ \\
+\lloid\ (theory) & $4.7\times10^8$ & $2\times10^{-3}$ \\
+\lloid\ (prototype) & ----------- & $5$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+\end{table}
+
+\PARstart{W}e have demonstrated a computationally feasible filtering algorithm
+for the rapid and even early-warning detection of \GW{}s emitted during the
+coalescence of neutron stars and stellar-mass black holes.  It is one part
+of a complicated analysis and observation strategy that will unfortunately
+have other sources of latency. However, we hope that it will motivate
+further work to reduce such technical sources of \GW{} observation latency
+and encourage the possibility of even more rapid \EM\ followup observations
+to catch prompt emission in the advanced detector era.
 
 \end{minipage}%
 \hspace{0.05\textwidth}%
 \begin{minipage}[t]{0.25\textwidth}
 
 \section*{Implementation}
+
+\PARstart{A}ccuracy and latency are critical parameters to verify. We present
+measurements based on a \gstreamer{}-based prototype of the \lloid{}
+algorithm. Figures \ref{fig:tmpltbank} and \ref{fig:time_slices} and
+Table~\ref{tab:time_slices} depict the masses used for the test and the
+resulting time-slice design.
 
 \begin{figure}[h]
 	\includegraphics[width=\textwidth]{figures/tmpltbank}
@@ -133,10 +160,11 @@ chirp masses $\mathcal{M}$ between 1.1955 and 1.2045~$M_\odot$.}
 
 \begin{figure}
 \includegraphics[width=\textwidth]{figures/envelope}
-\caption{envelope}
+\caption{\label{fig:time_slices} Time slice parameters overlaid onto a representative waveform amplitude envelope.}
 \end{figure}
 
 \begin{table}
+\centering
 \begin{tabular}{rr@{,\,}lcc}
 \toprule
 \\ [-2ex]
@@ -156,33 +184,26 @@ $f^s$ & $[t^s$&$t^{s+1})$ & & \\% [1ex]
 32 & [844.5&1100.5) & 8192 & 12 \\
 \bottomrule
 \end{tabular}
-\caption{\label{tab:time_slices} Filter design sub-bank of 657 templates.  From left to right, this table shows the sample rate, time interval, number of samples, and number of orthogonal templates for each time slice.  We vary \SVD{} tolerance from $\left(1-10^{-1}\right)$ to $\left(1-10^{-6}\right)$.}
+\caption{\label{tab:time_slices} Filter design sub-bank of 657 templates.  From left to right, this table shows the sample rate, time interval, number of samples, and number of orthogonal templates for each time slice.  The \SVD{} tolerance is set to 0.9999.}
 \end{table}
-
-
-\begin{figure}
-\centering
-%\includegraphics{olapredfcn}
-%\put(-450,350){\huge Placeholder}
-%\includegraphics{likelihoods}
-\caption{GStreamer pipeline.}
-\label{f:gstreamer_pipeline}
-\end{figure}
 
 \end{minipage}
 
 \section*{Acknowledgements}
 
-\LIGO\ was constructed by the California Institute of Technology and
-Massachusetts Institute of Technology with funding from the National Science
-Foundation and operates under cooperative agreement
-\textsc{phy}-\oldstylenums{0107417}. This research
-is supported by the National Science Foundation through a Graduate Research
-Fellowship to LS.
+This poster was prepared by \textsc{nf} and \textsc{ls} based on a preprint
+article designated LIGO-P0900004 and authored by Kipp Cannon, Romain Cariou,
+Mireia Crispin-Ortuzar, \textsc{nf}, Melissa Frei, Chad Hann, Erin Kara, Drew
+Keppel, Laura Liao, Stephen Privitera, \textsc{ls}, and Alan Weinstein. \LIGO\
+was constructed by the California Institute of Technology and Massachusetts
+Institute of Technology with funding from the National Science Foundation and
+operates under cooperative agreement \textsc{phy}-\oldstylenums{0107417}. This
+research is supported by the National Science Foundation through a Graduate
+Research Fellowship to \textsc{ls}.
 
 %%% References
 
 \bibliographystyle{plain}
-\bibliography{biblio}
+\bibliography{references}
 
 \end{document}
