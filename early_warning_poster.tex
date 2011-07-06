@@ -7,7 +7,7 @@
 \usepackage{microtype}
 \usepackage{concmath}
 \usepackage{aas_macros}
-\usepackage{color}
+\usepackage{xcolor}
 
 \input{macros}
 
@@ -99,6 +99,7 @@ much less than the number of output channels.}
 \begin{equation*}
 	\rho_i^s [k] =%
 		% Interpolation SNR
+		\color{\diagramcoloraccum}
 		\overbrace{
 			\left(H^\uparrow \rho_i^{s+1}\right)[k]
 		}^\text{\clap{{\sc snr} from prev. time slices}}
