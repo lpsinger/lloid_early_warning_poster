@@ -7,6 +7,7 @@
 \usepackage{microtype}
 \usepackage{concmath}
 \usepackage{aas_macros}
+\usepackage{color}
 
 \input{macros}
 
@@ -108,8 +109,8 @@ much less than the number of output channels.}
 			\sum_{l=0}^{L^s-1} v_{il}^s \sigma_l^s
 		}_\text{\clap{reconstruction}}
 		% Orthogonal FIR filter
-		\;\overbrace{
-			\sum_{n=0}^{N^s-1} u_l^s[n] x^s[k-n]
+		\;\color{\diagramcolorfir}\overbrace{
+			\sum_{n=0}^{N^s-1} u_l^s[n] \color{\diagramcolorinput}x^s[k-n]
 		}^\text{\clap{orthogonal {\sc fir} filters}} .
 \end{equation*}
 
