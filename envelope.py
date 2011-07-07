@@ -29,8 +29,7 @@ matplotlib.rcParams.update(
   {'axes.labelsize': 24,
    'axes.linewidth': 2,
    'grid.linewidth': 1.5,
-   'text.fontsize': 24,
-   'font.size': 24,
+   'font.size': 16,
    'legend.fontsize': 20,
    'lines.linewidth': 2,
    'xtick.labelsize': 24,
@@ -51,7 +50,7 @@ matplotlib.rcParams.update(
 
 # Generate plot
 from gstlal.svd_bank import read_bank
-bank = read_bank('data/svd_0_9.xml')
+bank = read_bank('data/svd_0_9999.xml')
 pylab.figure(figsize=fig_size)
 ax = pylab.subplot(111, xscale="log")
 legend_artists = []
@@ -71,6 +70,10 @@ pylab.xlim(tmax, 2e-1)
 pylab.ylim(-.1, .1)
 pylab.yticks([], [])
 pylab.xticks([take_last(x).end for _, x in groupby(bank.bank_fragments, attrgetter("rate"))], [str(take_last(x).end) for _, x in groupby(bank.bank_fragments, attrgetter("rate"))], rotation=45)
+for x in reversed(bank.bank_fragments):
+	t = pylab.text((x.end * max(x.start, pylab.xlim()[1]))**0.5, 0, str(len(x.orthogonal_template_bank)), horizontalalignment="center",
+		verticalalignment="center", rotation=90)
+t.set_color("w")  # XXX: hard-code white text for the last text entry
 pylab.grid()
 pylab.xlabel('time relative to coalescence (s)')
 pylab.ylabel(r'strain amplitude')
