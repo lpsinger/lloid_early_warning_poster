@@ -9,6 +9,7 @@
 \renewcommand{\familydefault}{\rmdefault}
 
 
+\usepackage{natbib}
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{booktabs}
@@ -102,7 +103,7 @@ orbital separation decays, leading to a runaway inspiral with the \GW{}
 amplitude and frequency increasing until the system eventually merges.  If a
 neutron star (\textsc{ns}) is involved, it may become tidally disrupted near
 the merger and fuel an electromagnetic (\EM{}) counterpart~%
-\cite{shibata:2007}.  Effort from both the \GW{} and astronomy communities may make it
+\citep{shibata:2007}.  Effort from both the \GW{} and astronomy communities may make it
 possible to use \GW{} observations as an early warning trigger for \EM{}
 followup.
 %
@@ -112,19 +113,19 @@ followup.
 sources that could be detectable by Advanced \LIGO\ a given number of seconds
 before coalescence.  The heavy solid line is the most realistic yearly rate
 estimate.  The shaded region represents the 5 to 95\% confidence interval
-arising from uncertainty in predicted event rates~\cite{Abadie:2010p10836}.}
+arising from uncertainty in predicted event rates~\citep{Abadie:2010p10836}.}
 \end{figure}
 
 \begin{figure}[h]
 \includegraphics[width=1.15\textwidth]{figures/loc_in_time}
 \caption{\label{fig:sky-localization-accuracy}Area of the 90\% confidence
-region as a function of time before coalescence for sources with anticipated
+region~\citep{Fairhurst2009} as a function of time before coalescence for sources with anticipated
 detectability rates of 40, 10, 1, and 0.1~yr$^{-1}$. The heavy dot indicates
 the time at which the accumulated \SNR\ exceeds a threshold of~8.}
 \end{figure}
 
 There were a number of sources of latency associated with the search for
-\CBC{} signals in S6/VSR3~\cite{HugheyGWPAW2011}:
+\CBC{} signals in S6/VSR3~\citep{HugheyGWPAW2011}:
 
 \begin{itemize}
 \item Data acquisition and aggregation ($\gtrsim$100~ms)
@@ -239,26 +240,29 @@ case study.}
 
 \end{minipage}
 
+\begin{minipage}[t]{0.25\textwidth}
+%%% References
+\bibliographystyle{apj}
+\bibliography{references}
+\end{minipage}%
+\hspace{0.05\textwidth}%
+\begin{minipage}[t]{0.7\textwidth}
 \section*{Acknowledgements}
 
 This poster was prepared by \textsc{nf} and \textsc{ls} based on a preprint
 article designated \LIGO{}-\textsc{p}\oldstylenums{0900004}. \LIGO\ was constructed by the California Institute of
 Technology and Massachusetts Institute of Technology with funding from the
-National Science Foundation and operates under cooperative agreement
-\textsc{phy}-\oldstylenums{0107417}. This research is supported by the National
-Science Foundation through a Graduate Research Fellowship to \textsc{ls}.
+National Science Foundation (\textsc{nsf}) and operates under cooperative agreement
+\textsc{phy}-\oldstylenums{0107417}. This research is supported by \textsc{nsf}
+through a Graduate Research Fellowship to \textsc{ls}.
 
-%%% References
-\bibliographystyle{plain}
-\bibliography{references}
-
-\begin{center}
 \includegraphics[height=3cm]{figures/LSC_logo}\hspace{7.5mm}
 \raisebox{-7.5mm}{\includegraphics[height=4.5cm]{figures/Caltech_logo}}\hspace{7.5mm}
 \raisebox{-7.5mm}{\includegraphics[height=4.5cm]{figures/nsf1}}
 \raisebox{1.5mm}{\includegraphics[height=3cm]{figures/gstreamer-logo}}
 
 \footnotesize{Amaldi 9, Cardiff, Wales, UK; This document bears the \textsc{dcc} number \LIGO{}-\textsc{g}\oldstylenums{1100683}-v\oldstylenums{1}.}
-\end{center}
+
+\end{minipage}
 
 \end{document}
