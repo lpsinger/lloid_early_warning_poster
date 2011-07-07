@@ -8,7 +8,6 @@
 \usepackage[T1]{fontenc}
 \renewcommand{\familydefault}{\rmdefault}
 
-
 \usepackage{natbib}
 \usepackage{amsmath}
 \usepackage{amssymb}
@@ -146,6 +145,21 @@ There were a number of sources of latency associated with the search for
 
 \section*{The LLOID algorithm}
 
+\PARstart{\color{ink1!50!black}S}{\color{ink1!50!black}earches for inspiral signals} employ matched
+filter banks.
+Our algorithm, called \lloid{}~(Low Latency Online Inspiral Detection),
+consists of a network of orthogonal filters that approximates the matched filters to arbitrary
+precision --- but with greatly reduced computational cost.
+
+\setlength{\parindent}{1em}
+
+Similar to the multi-band approach of \citet{Buskulic2010}, we chop the templates into
+disjoint \emph{time slices} that are processed at reduced sample rates.
+
+Then, we reduce the number of filters using the \textsc{svd}
+to factor the time-sliced templates
+into orthogonal \textsc{fir} filters and a reconstruction matrix.
+
 \begin{figure}[h!]
 	\begin{center}
 		\includegraphics[width=\textwidth]{figures/lloid-diagram}
@@ -199,13 +213,12 @@ frequency domain & $2.6\times10^8$ & $2\times10^3$ \\
 \end{center}
 \end{table}
 
-\PARstart{\color{ink1!50!black}W}{\color{ink1!50!black}e have demonstrated} a computationally feasible filtering algorithm
-for the rapid and even early-warning detection of \GW{}s emitted during the
-coalescence of neutron stars and stellar-mass black holes.  It is one part
-of a complicated analysis and observation strategy that will unfortunately
-have other sources of latency. However, we hope that it will motivate
-further work to reduce technical sources of \GW{} observation latency
-and encourage the possibility of even more rapid \EM\ followup observations
+\PARstart{\color{ink1!50!black}W}{\color{ink1!50!black}e have shown} a computationally feasible filtering algorithm
+for rapid and even early-warning detection of \GW{}s from \CBC.  It is one part
+of a complicated analysis and observation strategy with
+other latency sources. We hope it will motivate
+work to reduce technical latency,
+leading to even faster \EM\ followup
 to catch prompt emission in the advanced detector era.
 
 \end{minipage}%
