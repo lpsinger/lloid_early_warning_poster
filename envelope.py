@@ -23,13 +23,13 @@ legend_labels = []
 num_rates = len(set(x.rate for x in bank.bank_fragments))
 tmax = max(x.end for x in bank.bank_fragments)
 mc = spawaveform.chirpmass(1.4, 1.4)
-for color, (rate, fragments) in izip(pylab.linspace(0.25, 1., num_rates), groupby(bank.bank_fragments, attrgetter('rate'))):
-	legend_artists += [pylab.Rectangle((0, 0), 1, 1, facecolor = str(color))]
+for color, (rate, fragments) in izip(('black', '#E6E6E6', 'white', '#FFD9BF', '#BFBFDF', '#FFBFBF'), groupby(bank.bank_fragments, attrgetter('rate'))):
+	legend_artists += [pylab.Rectangle((0, 0), 1, 1, facecolor = color)]
 	legend_labels += ['%d Hz' % rate]
 	for fragment in fragments:
 		t = pylab.linspace(-fragment.end, -max(fragment.start, 1./4096))
 		a = (-0.2 * t / mc) ** (-1./4)
-		pylab.fill_between(t, -a, a, facecolor = str(color))
+		pylab.fill_between(t, -a, a, facecolor = color)
 pylab.legend(reversed(legend_artists), reversed(legend_labels), loc='lower left', ncol=2)
 pylab.xlim(-tmax, 0.)
 pylab.ylim(-.1, .1)
@@ -39,4 +39,5 @@ pylab.grid()
 pylab.xlabel('time relative to coalescence (s)')
 pylab.ylabel(r'strain amplitude')
 pylab.subplots_adjust(left=0.075, right=0.97, top=0.95, bottom=0.225)
+pylab.gca().set_axis_bgcolor('#E6E6E6')
 pylab.savefig(sys.argv[1])
