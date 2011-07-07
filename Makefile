@@ -13,13 +13,13 @@ early_warning_poster.pdf: $(PREREQS)
 figures/lloid-diagram.pdf: figures/diagram.tex macros.tex
 	$(MAKE) -C figures $(@F)
 
-figures/envelope.pdf: envelope.py
+figures/envelope.pdf: envelope.py matplotlibrc
 	python $^ $@
 
-figures/snr_in_time.pdf: snr_in_time.py
+figures/snr_in_time.pdf: snr_in_time.py matplotlibrc
 	python $^ $@
 
-figures/loc_in_time.pdf: localization_uncertainty.py
+figures/loc_in_time.pdf: localization_uncertainty.py matplotlibrc
 	python $^ $@
 
 clean:
