@@ -14,13 +14,13 @@ figures/lloid-diagram.pdf: figures/diagram.tex macros.tex
 	$(MAKE) -C figures $(@F)
 
 figures/envelope.pdf: envelope.py matplotlibrc
-	python $^ $@
+	python $< $@
 
 figures/snr_in_time.pdf: snr_in_time.py matplotlibrc
-	python $^ $@
+	python $< $@
 
 figures/loc_in_time.pdf: localization_uncertainty.py matplotlibrc
-	python $^ $@
+	python $< $@
 
 clean:
 	rm -f early_warning_poster.{aux,out,log,bbl,blg,pdf} time_slices.{tex,pdf} figures/envelope.pdf figures/loc_in_time.pdf figures/snr_in_time.pdf
