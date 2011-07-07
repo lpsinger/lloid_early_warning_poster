@@ -1,13 +1,14 @@
 \documentclass[portrait,plainboxedsections]{sciposter}
 
+\usepackage{fix-cm}
+\usepackage[boldsans]{ccfonts}
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{booktabs}
 \usepackage{graphicx}
-\usepackage{microtype}
-%\usepackage{concmath}
 \usepackage{aas_macros}
 \usepackage{xcolor}
+\renewcommand{\familydefault}{\rmdefault}
 
 \input{macros}
 
@@ -33,7 +34,7 @@
 
 \section*{Motivation}
 
-\PARstart{A}{s} a compact binary system loses energy to gravitational waves (\GW{}s), its
+\bf\PARstart{A}{s}\rm\ a compact binary system loses energy to gravitational waves (\GW{}s), its
 orbital separation decays, leading to a runaway inspiral with the \GW{}
 amplitude and frequency increasing until the system eventually merges.  If a
 neutron star (\textsc{ns}) is involved, it may become tidally disrupted near
@@ -137,7 +138,7 @@ frequency domain & $2.6\times10^8$ & $2\times10^3$ \\
 \end{center}
 \end{table}
 
-\PARstart{W}{e} have demonstrated a computationally feasible filtering algorithm
+\bf\PARstart{W}{e}\rm\ have demonstrated a computationally feasible filtering algorithm
 for the rapid and even early-warning detection of \GW{}s emitted during the
 coalescence of neutron stars and stellar-mass black holes.  It is one part
 of a complicated analysis and observation strategy that will unfortunately
@@ -152,7 +153,7 @@ to catch prompt emission in the advanced detector era.
 
 \section*{Implementation}
 
-\PARstart{A}{ccuracy} and latency are critical parameters. Figures
+\bf\PARstart{A}{ccuracy}\rm\ and latency are critical parameters. Figures
 \ref{fig:tmpltbank} and \ref{fig:time_slices} and Table~\ref{tab:time_slices}
 depict the masses used for the test and the resulting time-slice design. The
 \SVD{} tolerance is set to 0.9999, which guarantees a fractional \SNR{} loss
