@@ -31,6 +31,19 @@
 
 \email{foton@caltech.edu}
 
+\renewcommand{\sPlainBoxSection}[1]{
+  \vspace{\secskip}
+    \setlength{\secboxwidth}{\columnwidth}
+    \addtolength{\secboxwidth}{-1cm}
+    \setlength{\fboxrule}{2pt}
+    \setlength{\fboxsep}{0pt}
+        \vspace{1.1ex}
+          \hspace{1.1ex}{\sectionsize{#1}} \\
+  \rule[10pt]{\textwidth}{2pt}
+  \par\vspace{1ex}
+}
+
+
 \begin{document}
 \conference{Amaldi 9, Cardiff, Wales, UK; This document bears the \textsc{dcc} number \LIGO{}-\textsc{g}\oldstylenums{1100683}-v\oldstylenums{1}.}
 
@@ -124,7 +137,7 @@ There were a number of sources of latency associated with the search for
 \hspace{0.05\textwidth}%
 \begin{minipage}[t]{0.4\textwidth}
 
-\section*{The \lloid{} algorithm}
+\section*{The LLOID algorithm}
 
 \begin{figure}[h!]
 	\begin{center}
