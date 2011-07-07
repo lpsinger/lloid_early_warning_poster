@@ -88,17 +88,18 @@ for i, (cfile, label) in enumerate(zip(['data/ZERO_DET_high_P.txt'], ['zero det'
 
 	# generate the figure
 	ax1 = fig.add_subplot(1,1,1, adjustable='box')
-	pylab.loglog(t, num, markers[i], lw=2, label=label)
-	pylab.loglog(t, numminus, markers[i], lw=0.5)
-	pylab.loglog(t, numplus, markers[i], lw=0.5)
+	pylab.loglog(t, num, markers[i], lw=4, color='#800000', label=label)
+	pylab.loglog(t, numminus, markers[i], color='#800000', lw=0.5)
+	pylab.loglog(t, numplus, markers[i], color='#800000', lw=0.5)
 	#pylab.hold(1)
-	pylab.fill_between(t, numminus, numplus, color='0.85')
+	pylab.fill_between(t, numminus, numplus, color='#FFD9BF')
 
 pylab.grid()
 #pylab.legend(loc='lower left')
 pylab.ylabel(r'detections yr$^{-1}$')
 pylab.xlabel(r'time before coalescence (s)')
-pylab.subplots_adjust(bottom=0.2,top=0.95,left=0.2,right=0.95)
+pylab.subplots_adjust(bottom=0.2,top=0.95,left=0.15,right=0.95)
 pylab.xlim([0.01,1000])
 pylab.ylim([.1, 1000])
+pylab.gca().set_axis_bgcolor('#E6E6E6')
 pylab.savefig(sys.argv[1])
