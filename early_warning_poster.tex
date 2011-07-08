@@ -228,13 +228,15 @@ to catch prompt emission in the advanced detector era.
 
 \section*{Implementation in GStreamer}
 
-\PARstart{\color{ink1!50!black}A}{\color{ink1!50!black}ccuracy and latency} are critical parameters. Figures
+\PARstart{\color{ink1!50!black}A}{\color{ink1!50!black}ccuracy is a} critical parameter.  We demanded a mismatch with the original templates of no greater than 0.003, so we used an \SVD\ tolerance of 0.9999.  We tested the accuracy
+of \lloid\ using a sub-bank of 1314 (real-valued) templates.  Figures
 \ref{fig:tmpltbank} and \ref{fig:time_slices}
-depict the masses used for the test and the resulting time-slice design. The
-\SVD{} tolerance is set to 0.9999, which guarantees a fractional \SNR{} loss
-less than 0.003. Table~\ref{table:flops} in Results summarizes measurements of
-latency for a fixed accuracy based on a \gstreamer{}-based prototype of the
-\lloid{} algorithm.
+depict the masses used for the test and the resulting time-slice design.
+
+{\setlength{\parindent}{1em}
+We implemented \lloid\ using \gstreamer, the open source signal processing environment.  Table~\ref{table:flops} in Results summarizes measurements of
+latency for our \gstreamer{}-based prototype of the \lloid{} algorithm.
+}
 
 \begin{figure}[h]
 	\includegraphics[width=1.1\textwidth]{figures/tmpltbank}
