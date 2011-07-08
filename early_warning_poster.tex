@@ -1,34 +1,28 @@
 \documentclass[portrait,plainboxedsections]{sciposter}
 
-% Select Computer Concrete as default font
+% Override font size limits
 \usepackage{anyfontsize}
+% Select Computer Concrete as default font
 \usepackage{concrete}
+% Select Computer Concrete as math font
 \usepackage{concmath}
 \usepackage[T1]{fontenc}
+% Set default font family as serif (sciposter sets sans serif by default)
 \renewcommand{\familydefault}{\rmdefault}
-
+% ApJ style citations
 \usepackage{natbib}
 \usepackage{amsmath}
 \usepackage{amssymb}
+% For toprule
 \usepackage{booktabs}
 \usepackage{graphicx}
+% Computer Concrete makes AAS macros show up in wrong font size; workaround
 %\usepackage{aas_macros}
 \newcommand{\prd}{Phys. Rev. D}
+% Color mixing
 \usepackage{xcolor}
 
 \input{macros}
-
-% customize colors
-\definecolor{BoxCol}{RGB}{0,35,102} % RoyalBlue
-\definecolor{SectionCol}{RGB}{255,255,255} % White
-
-\title{Toward early-warning detection of compact binary coalescence}
-
-\author{\textsc{Nickolas V. Fotopoulos}, Leo P. Singer}
-
-\institute{\LIGO{} Laboratory, California Institute of Technology}
-
-\email{foton@caltech.edu}
 
 % Redefine style for \section*
 \renewcommand{\sPlainBoxSection}[1]{
@@ -47,8 +41,8 @@
 \renewcommand{\mastercapstartstyle}[1]{\sc{\color{ink2!50!black}#1}}
 
 \begin{document}
-%\conference{Amaldi 9, Cardiff, Wales, UK; This document bears the \textsc{dcc} number \LIGO{}-\textsc{g}\oldstylenums{1100683}-v\oldstylenums{1}.}
 
+% Title banner
 \begin{minipage}[b]{0.25\textwidth}
 \raggedleft
 {\fontsize{36}{50}\selectfont
@@ -89,8 +83,6 @@ of compact binary coalescence
 	Leo Singer, and
 	Alan Weinstein
 
-%\vspace{0.5em}
-%LIGO Laboratory, California Institute of Technology
 }
 \end{minipage}
 \vspace{1cm}
@@ -153,6 +145,7 @@ Our algorithm, called \lloid{}~(Low Latency Online Inspiral Detection),
 consists of a network of orthogonal filters that approximates the matched filters to arbitrary
 precision --- but with greatly reduced computational cost.
 
+{
 \setlength{\parindent}{1em}
 
 Similar to the multi-band approach of \citet{Buskulic2010}, we chop the templates into
@@ -161,7 +154,7 @@ disjoint \emph{time slices} that are processed at reduced sample rates.
 Then, we reduce the number of filters using the \textsc{svd}
 to factor the time-sliced templates
 into orthogonal \textsc{fir} filters and a reconstruction matrix.
-
+}
 \begin{figure}[h!]
 	\begin{center}
 		\includegraphics[width=\textwidth]{figures/lloid-diagram}
