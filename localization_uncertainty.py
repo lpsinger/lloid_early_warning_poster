@@ -2,8 +2,38 @@
 
 import numpy
 from numpy import pi
+import matplotlib
 import pylab
 import sys
+
+# setting some figure properties
+# taken from http://www.scipy.org/Cookbook/Matplotlib/LaTeX_Examples
+fig_width_pt = 525 * 1.15  # Get this from LaTeX using \showthe\columnwidth
+inches_per_pt = 1.0/72.27               # Convert pt to inch
+golden_mean = (numpy.sqrt(5)-1.0)/2.0         # Aesthetic ratio
+fig_width = fig_width_pt*inches_per_pt  # width in inches
+fig_height = fig_width * golden_mean      # height in inches
+fig_size =  [fig_width,fig_height]
+matplotlib.rcParams.update(
+  {'axes.labelsize': 24,
+   'axes.linewidth': 2,
+   'grid.linewidth': 1.5,
+   'font.size': 16,
+   'legend.fontsize': 20,
+   'lines.linewidth': 2,
+   'xtick.labelsize': 24,
+   'ytick.labelsize': 24,
+   'text.usetex': True,
+#   'text.latex.preamble': [r"""\usepackage{anyfontsize}
+#\usepackage{concrete}
+#\usepackage{concmath}
+#\usepackage{type1ec}
+#\usepackage[T1]{fontenc}
+#\renewcommand{\familydefault}{\rmdefault}"""],
+   'figure.figsize': fig_size,
+   'font.family': 'serif',
+   'font.serif': ['Palatino']  # XXX: concrete fails, so fall back to Palatino
+   })
 
 def float_as_string(num, sigfigs = 2):
 	"""Convert a floating point number to a string in scientific notation,
@@ -141,7 +171,7 @@ print r"\tableline"
 print r"\end{tabular}"
 
 
-fig = pylab.figure(figsize=(6,4))
+fig = pylab.figure(figsize=fig_size)
 ax = fig.add_subplot(1,1,1, adjustable='box')
 
 for rate in (40., 10., 1., 0.1):
@@ -151,12 +181,12 @@ for rate in (40., 10., 1., 0.1):
 	pylab.loglog(t[~pred], a90[~pred], ':k', linewidth=3, color='#000080')
 	pylab.loglog(t[pred][0], a90[pred][0], 'ok', markersize=6, linewidth=3, color='#000080')
 	pylab.loglog(t[pred], a90[pred], 'k', linewidth=3, color='#000080')
-	pylab.text(.8*t[-1], a90[-1], r"%g yr$^{-1}$" % rate, {"size": 14.}, horizontalalignment='left', verticalalignment='center')
+	pylab.text(.8*t[-1], a90[-1], r"%g yr$^{-1}$" % rate, {"size": 18.}, horizontalalignment='left', verticalalignment='center')
 pylab.xlim(0., 1000.)
 pylab.ylim(1e-1, 41253)
 ax.invert_xaxis()
 pylab.grid()
-pylab.ylabel(r'$A$(90%) (deg$^2$)')
+pylab.ylabel(r'$A$(90\%) (deg$^2$)')
 pylab.xlabel(r'time before coalescence, $t$ (s)')
 pylab.subplots_adjust(bottom=0.2,top=0.95,left=0.15,right=0.85)
 pylab.gca().set_axis_bgcolor('#E6E6E6')

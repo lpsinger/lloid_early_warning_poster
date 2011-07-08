@@ -16,7 +16,6 @@ def take_last(it):
         except StopIteration:
             return val
 
-# Command line interface
 # setting some figure properties
 # taken from http://www.scipy.org/Cookbook/Matplotlib/LaTeX_Examples
 fig_width_pt = 525  # Get this from LaTeX using \showthe\columnwidth
@@ -35,15 +34,15 @@ matplotlib.rcParams.update(
    'xtick.labelsize': 24,
    'ytick.labelsize': 24,
    'text.usetex': True,
-   'text.latex.preamble': [r"""\usepackage{anyfontsize}
-\usepackage{concrete}
-\usepackage{concmath}
-\usepackage{type1ec}
-\usepackage[T1]{fontenc}
-\renewcommand{\familydefault}{\rmdefault}"""],
+#   'text.latex.preamble': [r"""\usepackage{anyfontsize}
+#\usepackage{concrete}
+#\usepackage{concmath}
+#\usepackage{type1ec}
+#\usepackage[T1]{fontenc}
+#\renewcommand{\familydefault}{\rmdefault}"""],
    'figure.figsize': fig_size,
    'font.family': 'serif',
-   'font.serif': ['palatino'],
+   'font.serif': ['Palatino']
    })
 
 # Place time slices
@@ -75,8 +74,8 @@ for x in reversed(bank.bank_fragments):
 		verticalalignment="center", rotation=90)
 t.set_color("w")  # XXX: hard-code white text for the last text entry
 pylab.grid()
-pylab.xlabel('time relative to coalescence (s)')
+pylab.xlabel('time before coalescence (s)')
 pylab.ylabel(r'strain amplitude')
-pylab.subplots_adjust(left=0.075, right=0.97, top=0.95, bottom=0.275)
+pylab.subplots_adjust(left=0.06, right=0.97, top=0.99, bottom=0.275)
 pylab.gca().set_axis_bgcolor('#E6E6E6')
 pylab.savefig(sys.argv[1])

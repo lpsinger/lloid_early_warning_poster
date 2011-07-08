@@ -1,9 +1,39 @@
 #!/usr/bin/python
+import matplotlib
 import numpy
 import pylab
 import scipy
 from scipy import interpolate
 import sys
+
+# setting some figure properties
+# taken from http://www.scipy.org/Cookbook/Matplotlib/LaTeX_Examples
+fig_width_pt = 525 * 1.05  # Get this from LaTeX using \showthe\columnwidth
+inches_per_pt = 1.0/72.27               # Convert pt to inch
+golden_mean = (numpy.sqrt(5)-1.0)/2.0         # Aesthetic ratio
+fig_width = fig_width_pt*inches_per_pt  # width in inches
+fig_height = fig_width * golden_mean      # height in inches
+fig_size =  [fig_width,fig_height]
+matplotlib.rcParams.update(
+  {'axes.labelsize': 24,
+   'axes.linewidth': 2,
+   'grid.linewidth': 1.5,
+   'font.size': 16,
+   'legend.fontsize': 20,
+   'lines.linewidth': 2,
+   'xtick.labelsize': 24,
+   'ytick.labelsize': 24,
+   'text.usetex': True,
+#   'text.latex.preamble': [r"""\usepackage{anyfontsize}
+#\usepackage{concrete}
+#\usepackage{concmath}
+#\usepackage{type1ec}
+#\usepackage[T1]{fontenc}
+#\renewcommand{\familydefault}{\rmdefault}"""],
+   'figure.figsize': fig_size,
+   'font.family': 'serif',
+   'font.serif': ['Palatino']  # XXX: concrete fails, so fall back to Palatino
+   })
 
 #
 # Constants
@@ -44,7 +74,7 @@ def snr_to_num(fracsnr, number=40):
 	return number * (fracsnr)**3
 
 # Start a new figure
-fig = pylab.figure(figsize=(6,3.5))
+fig = pylab.figure(figsize=fig_size)
 
 markers = ['k-', 'k--', 'k:']
 
