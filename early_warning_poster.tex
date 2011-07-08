@@ -230,14 +230,14 @@ to catch prompt emission in the advanced detector era.
 
 \section*{Implementation in GStreamer}
 
-\PARstart{\color{ink1!50!black}A}{\color{ink1!50!black}ccuracy is a} critical parameter.  We demanded a mismatch with the original templates of no greater than 0.003, so we used an \SVD\ tolerance of 0.9999.  We tested the accuracy
-of \lloid\ using a sub-bank of 1314 (real-valued) templates.  Figures
-\ref{fig:tmpltbank} and \ref{fig:time_slices}
-depict the masses used for the test and the resulting time-slice design. The
-\SVD{} tolerance is set to 0.9999, which guarantees a fractional \SNR{} loss
-less than 0.003. Table~\ref{table:flops} in Results summarizes measurements of
-latency for a fixed accuracy based on a \gstreamer{}-based prototype of the
-\lloid{} algorithm.
+\PARstart{\color{ink1!50!black}W}{\color{ink1!50!black}e tested the accuracy of}
+\lloid\ using a sub-bank of 1314 (real-valued) templates.  Figures
+\ref{fig:tmpltbank} and \ref{fig:time_slices} depict the masses used for the
+test and the resulting time-slice design, respectively. The \SVD{} tolerance is
+set to 0.9999, which guarantees a fractional \SNR{} loss less than 0.003.
+Table~\ref{table:flops} in Results summarizes measurements of latency for a
+fixed accuracy based on a \gstreamer{}-based prototype of the \lloid{}
+algorithm.
 %
 \begin{figure}[h]
 	\includegraphics[width=1.1\textwidth]{figures/tmpltbank}
@@ -251,8 +251,8 @@ case study.}
 \end{figure}
 
 \vspace{-1.5em}
-\gstreamer{} is an open-source streaming framework used for
-Linux and mobile desktop multimedia players. As ground-based interferometric
+\gstreamer{} is an open-source framework used for
+Linux desktop and mobile multimedia players. As ground-based interferometric
 detectors have response in the audio range, \gstreamer{} is serendipitously
 an excellent fit.
 %
@@ -260,17 +260,16 @@ an excellent fit.
 \includegraphics[width=\textwidth]{figures/network}
 \caption{\label{fig:gstreamer}Visualization of part of a typical GStreamer pipeline.}
 \end{figure}
-\vspace{-2em}
 
 \end{minipage}
 
-\begin{minipage}[t]{0.25\textwidth}
+\begin{minipage}[t]{0.33\textwidth}
 %%% References
 \bibliographystyle{apj}
 \bibliography{references}
 \end{minipage}%
 \hspace{0.05\textwidth}%
-\begin{minipage}[t]{0.7\textwidth}
+\begin{minipage}[t]{0.62\textwidth}
 \section*{Acknowledgements}
 
 \LIGO\ was constructed by Caltech and \textsc{mit} with funding from the
