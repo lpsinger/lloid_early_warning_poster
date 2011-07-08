@@ -173,26 +173,32 @@ signs represent summing junctions
 rate decreases from the top of the diagram to the bottom.}
 	\end{center}
 \end{figure}
-
+%
 \begin{equation*}
-	\rho_i^s [k] =%
+	\underbrace{
+		\vphantom{\Bigg(}\rho_i^s [k]
+	}_{\raisebox{-7mm}{\text{\clap{early-warning output}}}} =%
 		% Interpolation SNR
 		\color{diagramaccum}
 		\overbrace{
-			\left(H^\uparrow \rho_i^{s+1}\right)[k]
-		}^\text{\clap{{\sc snr} from prev. time slices}}
+			\vphantom{\Bigg(}\left(H^\uparrow \rho_i^{s+1}\right)[k]
+		}^{\raisebox{5mm}{\text{\clap{{\sc snr} from previous time slices}}}}
 		% Plus ...
 		\;\;+\;\;
 		% Reconstruction
 		\color{diagramreconstruct}
 		\underbrace{
-			\sum_{l=0}^{L^s-1} v_{il}^s \sigma_l^s
-		}_\text{\clap{reconstruction}}
+			\vphantom{\Bigg(}\sum_{l=0}^{L^s-1} v_{il}^s \sigma_l^s
+		}_{\raisebox{-7mm}{\text{\clap{reconstruction}}}}
 		% Orthogonal FIR filter
 		\color{diagramfir}
 		\;\overbrace{
-			\sum_{n=0}^{N^s-1} u_l^s[n] \color{black}x^s[k-n]
-		}^\text{\clap{orthogonal {\sc fir} filters}} .
+			\vphantom{\Bigg(}\sum_{n=0}^{N^s-1} u_l^s[n]
+			\;\color{black}
+			{\smash{\underbrace{
+				\vphantom{\Bigg(}x^s[k-n]
+			}_{\raisebox{-7mm}{\text{\clap{decimated $h(t)$}}}}}}
+		}^{\raisebox{5mm}{\text{\clap{orthogonal {\sc fir} filters}}}}
 \end{equation*}
 
 \section*{Results and conclusion}
