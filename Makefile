@@ -22,5 +22,8 @@ figures/snr_in_time.pdf: snr_in_time.py matplotlibrc
 figures/loc_in_time.pdf: localization_uncertainty.py matplotlibrc
 	python $< $@
 
+figures/tmpltbank.pdf: plot_bank.py matplotlibrc data/tmpltbank.xml data/tmpltbank-pruned.xml
+	python $< $@
+
 clean:
 	rm -f early_warning_poster.{aux,out,log,bbl,blg,pdf} time_slices.{tex,pdf} figures/envelope.pdf figures/loc_in_time.pdf figures/snr_in_time.pdf
