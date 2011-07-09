@@ -1,1 +1,7 @@
 backend: agg
+font.family: serif
+text.usetex: True
+text.latex.preamble: \usepackage{concrete}\usepackage{concmath}\usepackage{amssymb}
+
+# Uncomment the following line before generating final version for printing
+# savefig.dpi: 1440

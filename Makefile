@@ -2,7 +2,7 @@ TEX = env TEXINPUTS=:$(CURDIR)/packages/aastex52:$(CURDIR)/packages/astronat/apj
 BIBTEX = env BSTINPUTS=:$(CURDIR)/packages/astronat/apj: TEXINPUTS=:$(CURDIR)/packages/aastex52:$(CURDIR)/packages/astronat/apj: bibtex
 
 PREREQS = \
-	figures/envelope.pdf figures/snr_in_time.pdf figures/loc_in_time.pdf figures/tmpltbank.pdf figures/lloid-diagram.pdf early_warning_poster.tex macros.tex references.bib
+	figures/envelope.png figures/snr_in_time.png figures/loc_in_time.png figures/tmpltbank.png figures/lloid-diagram.pdf early_warning_poster.tex macros.tex references.bib
 
 early_warning_poster.pdf: $(PREREQS)
 	$(TEX) -draftmode early_warning_poster
@@ -13,17 +13,17 @@ early_warning_poster.pdf: $(PREREQS)
 figures/lloid-diagram.pdf: figures/diagram.tex macros.tex
 	$(MAKE) -C figures $(@F)
 
-figures/envelope.pdf: envelope.py matplotlibrc
+figures/envelope.png: envelope.py matplotlibrc
 	python $< $@
 
-figures/snr_in_time.pdf: snr_in_time.py matplotlibrc
+figures/snr_in_time.png: snr_in_time.py matplotlibrc
 	python $< $@
 
-figures/loc_in_time.pdf: localization_uncertainty.py matplotlibrc
+figures/loc_in_time.png: localization_uncertainty.py matplotlibrc
 	python $< $@
 
-figures/tmpltbank.pdf: plot_bank.py matplotlibrc data/tmpltbank.xml data/tmpltbank-pruned.xml
+figures/tmpltbank.png: plot_bank.py matplotlibrc data/tmpltbank.xml data/tmpltbank-pruned.xml
 	python $< $@
 
 clean:
-	rm -f early_warning_poster.{aux,out,log,bbl,blg,pdf} time_slices.{tex,pdf} figures/envelope.pdf figures/loc_in_time.pdf figures/snr_in_time.pdf
+	rm -f early_warning_poster.{aux,out,log,bbl,blg,pdf} figures/tmpltbank.png figures/envelope.png figures/loc_in_time.png figures/snr_in_time.png
