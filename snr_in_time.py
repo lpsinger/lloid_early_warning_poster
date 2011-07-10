@@ -23,16 +23,7 @@ matplotlib.rcParams.update(
    'lines.linewidth': 2,
    'xtick.labelsize': 24,
    'ytick.labelsize': 24,
-   'text.usetex': True,
-#   'text.latex.preamble': [r"""\usepackage{anyfontsize}
-#\usepackage{concrete}
-#\usepackage{concmath}
-#\usepackage{type1ec}
-#\usepackage[T1]{fontenc}
-#\renewcommand{\familydefault}{\rmdefault}"""],
    'figure.figsize': fig_size,
-   'font.family': 'serif',
-   'font.serif': ['Palatino']  # XXX: concrete fails, so fall back to Palatino
    })
 
 #

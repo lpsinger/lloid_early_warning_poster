@@ -33,16 +33,7 @@ matplotlib.rcParams.update(
    'lines.linewidth': 2,
    'xtick.labelsize': 24,
    'ytick.labelsize': 24,
-   'text.usetex': True,
-#   'text.latex.preamble': [r"""\usepackage{anyfontsize}
-#\usepackage{concrete}
-#\usepackage{concmath}
-#\usepackage{type1ec}
-#\usepackage[T1]{fontenc}
-#\renewcommand{\familydefault}{\rmdefault}"""],
    'figure.figsize': fig_size,
-   'font.family': 'serif',
-   'font.serif': ['Palatino']
    })
 
 # Place time slices
@@ -68,7 +59,7 @@ pylab.legend(reversed(legend_artists), reversed(legend_labels), loc='lower left'
 pylab.xlim(tmax, 2e-1)
 pylab.ylim(-.1, .1)
 pylab.yticks([], [])
-pylab.xticks([take_last(x).end for _, x in groupby(bank.bank_fragments, attrgetter("rate"))], [str(take_last(x).end) for _, x in groupby(bank.bank_fragments, attrgetter("rate"))], rotation=45)
+pylab.xticks([take_last(x).end for _, x in groupby(bank.bank_fragments, attrgetter("rate"))], ["$%.1f$" % take_last(x).end for _, x in groupby(bank.bank_fragments, attrgetter("rate"))], rotation=45)
 for x in reversed(bank.bank_fragments):
 	t = pylab.text((x.end * max(x.start, pylab.xlim()[1]))**0.5, 0, str(len(x.orthogonal_template_bank)), horizontalalignment="center",
 		verticalalignment="center", rotation=90)

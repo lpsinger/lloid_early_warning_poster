@@ -2,11 +2,33 @@
 
 from gstlal import lloidplots
 from glue.ligolw import utils, lsctables
+import numpy
 import pylab
+import matplotlib
 from matplotlib import ticker
 from mpl_toolkits.axes_grid1.inset_locator import zoomed_inset_axes
 from mpl_toolkits.axes_grid1.inset_locator import mark_inset
 import sys
+
+# setting some figure properties
+# taken from http://www.scipy.org/Cookbook/Matplotlib/LaTeX_Examples
+fig_width_pt = 525 * 1.1  # Get this from LaTeX using \showthe\columnwidth
+inches_per_pt = 1.0/72.27               # Convert pt to inch
+golden_mean = (numpy.sqrt(5)-1.0)/2.0         # Aesthetic ratio
+fig_width = fig_width_pt*inches_per_pt  # width in inches
+fig_height = fig_width * golden_mean      # height in inches
+fig_size =  [fig_width,fig_height]
+matplotlib.rcParams.update(
+  {'axes.labelsize': 24,
+   'axes.linewidth': 2,
+   'grid.linewidth': 1.5,
+   'font.size': 16,
+   'legend.fontsize': 20,
+   'lines.linewidth': 2,
+   'xtick.labelsize': 24,
+   'ytick.labelsize': 24,
+   'figure.figsize': fig_size,
+   })
 
 column1 = 'mchirp'
 column2 = 'mtotal'
@@ -53,7 +75,7 @@ def foo():
 	#pylab.fill_betweenx(fill_mtotal, fill_min_mchirp, fill_max_mchirp, edgecolor='none', facecolor='0.2')
 	#pylab.axvspan(1.1955, 1.2045, alpha=0.6, facecolor='white', edgecolor='k')
 
-pylab.figure(figsize=(5,4), dpi=300)
+pylab.figure(figsize=fig_size)
 pylab.gca().set_axis_bgcolor('#E6E6E6')
 pylab.subplots_adjust(left=0.175, bottom=0.15)
 pylab.xlim(0.5, 3)
@@ -66,7 +88,7 @@ pylab.ylabel(lloidplots.labels[column2])
 #pylab.grid()
 
 ax = pylab.gca()
-ax.annotate(r'$1.1955 \, \leqslant \, \mathcal{M}/M_\odot \, \leqslant \, 1.2045$', xy=(1.225, 2.7), xycoords='data', xytext=(-10, -17), textcoords='offset points', arrowprops={'arrowstyle':'->'})
+ax.annotate(r'$1.1955 \, \leq \, \mathcal{M}/M_\odot \, \leq \, 1.2045$', xy=(1.225, 2.7), xycoords='data', xytext=(-10, -36), textcoords='offset points', arrowprops={'arrowstyle':'->'})
 axins = zoomed_inset_axes(ax, 8, loc=7)
 #pylab.plot(big_data[0], big_data[1], ',', color='0.6')
 foo()
