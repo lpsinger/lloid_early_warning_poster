@@ -231,7 +231,8 @@ to catch prompt emission in the advanced detector era.
 \section*{Implementation in GStreamer}
 
 \PARstart{\color{ink1!50!black}W}{\color{ink1!50!black}e tested the accuracy of}
-\lloid\ using a sub-bank of 1314 (real-valued) templates.  Figures
+\lloid\ using a sub-bank of 1314 (real-valued) templates with an Advanced LIGO
+(high-power, zero detuning) noise spectrum down to 10~Hz.  Figures
 \ref{fig:tmpltbank} and \ref{fig:time_slices} depict the masses used for the
 test and the resulting time-slice design, respectively. The \SVD{} tolerance is
 set to 0.9999, which guarantees a fractional \SNR{} loss less than 0.003.
@@ -241,8 +242,7 @@ algorithm.
 %
 \begin{figure}[h]
 	\includegraphics[width=1.1\textwidth]{figures/tmpltbank}
-	\caption{\label{fig:tmpltbank}Source parameters selected for sub-bank used in this
-case study.}
+	\caption{\label{fig:tmpltbank}Source parameters for benchmark. Waveforms enter the Advanced LIGO band $\sim$17.5 minutes before merger.}
 \end{figure}
 %
 \begin{figure}
