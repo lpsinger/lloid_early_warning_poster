@@ -151,12 +151,10 @@ There were a number of sources of latency associated with the search for
 \PARstart{\color{ink1!50!black}S}{\color{ink1!50!black}earches for inspiral signals} employ matched
 filter banks.
 Our algorithm, called \lloid{}~(Low Latency Online Inspiral Detection),
-consists of a network of orthogonal filters that approximates the matched filters to arbitrary
-precision --- but with greatly reduced computational cost and with nearly zero latency.
+consists of a network of orthogonal filters that closely approximates the matched filters, but with greatly reduced computational cost and with nearly zero latency.
 Similar to the multi-band approach of \citet{Buskulic2010}, we chop the templates into
 disjoint \emph{time slices} that are processed at reduced sample rates.
-Then, we reduce the number of filters using the \textsc{svd}
-to factor the time-sliced templates
+Then, we reduce the number of filters using the singular value decomposition (\textsc{svd}) to factor the time-sliced templates
 into orthogonal \textsc{fir} filters and a reconstruction matrix~\citep{Cannon:2010p10398}.
 \begin{figure}[h!]
 	\begin{center}
