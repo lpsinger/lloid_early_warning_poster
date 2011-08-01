@@ -1,13 +1,26 @@
 \documentclass{beamer}
 \usetheme{Boadilla}
 
-\usepackage{amsmath,amssymb}
+% Override font size limits
+\usepackage{anyfontsize}
+% Select Computer Concrete as default font
+\usepackage{concrete}
+% Select Computer Concrete as math font
+\usepackage{concmath}
+\usepackage[T1]{fontenc}
+% Set default font family as serif (sciposter sets sans serif by default)
+\renewcommand{\familydefault}{\rmdefault}
 
-\title[LIGO-Gxxxxxxx-vx]{Toward early-warning detection of gravitational waves from compact binary coalescence}
+\usepackage{xcolor}
+
+\usepackage{amsmath,amssymb}
+\input{macros}
+
+\title[LIGO-Gxxxxxxx-vx]{Toward early-warning detection of compact binary coalescence}
 %\subtitle[?]{?}
 \institute[LIGO Caltech]{LIGO Laboratory, California Institute of Technology}
 \author[L Singer]{Leo Singer}
-\date{\today}
+\date{August 2, 2011}
 
 \begin{document}
 
@@ -37,6 +50,14 @@
 
 \begin{frame}
 \frametitle{Prospects for early-warning detection}
+	\begin{columns}
+		\begin{column}{0.7\textwidth}
+			\includegraphics[width=\textwidth]{figures/snr_psd}
+		\end{column}
+		\begin{column}{0.3\textwidth}
+			In advanced \textsc{ligo}, inspiral signals are in principal detectable {\color{ink3}tens or hundreds of seconds} before the \textsc{gw} from the merger have reached the earth.
+		\end{column}
+	\end{columns}
 \end{frame}
 
 
