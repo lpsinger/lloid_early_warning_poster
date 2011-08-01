@@ -49,17 +49,12 @@
 {\fontsize{36}{50}\selectfont
 Poster presented by
 
-NF --- foton@caltech.edu
+Nickolas Fotopoulos (foton@caltech.edu)
 
-and LS --- lsinger@caltech.edu
+and Leo Singer (lsinger@caltech.edu)
 
 }
-\vspace{32mm}
-\PARstart{}{Be sure to read article in preparation}
 
-\fontsize{36}{40}\selectfont
-LIGO-P0900004
-%arXiv:xxxx.xxxx
 \end{minipage}%
 \hspace{0.05\textwidth}%
 \begin{minipage}[b]{0.6\textwidth}
@@ -92,6 +87,7 @@ of compact binary coalescence
 
 \begin{minipage}[t]{0.25\textwidth}
 
+% FIXME: Motivation seems to be a different font size than other section headers
 \section*{Motivation}
 \PARstart{\color{ink1!50!black}A}{\color{ink1!50!black}s a compact binary system} loses energy to gravitational waves (\GW{}s), its
 orbital separation decays, leading to a runaway inspiral with the \GW{}
@@ -215,7 +211,7 @@ frequency domain & $5.2\times10^8$ & $2\times10^3$ \\
 \end{table}
 
 \PARstart{\color{ink1!50!black}W}{\color{ink1!50!black}e have shown} a computationally feasible filtering algorithm
-for rapid and even early-warning detection of \GW{}s from \CBC.  It is one part
+for rapid and even early-warning detection of \GW{}s from compact binary inspirals.  It is one part
 of a complicated analysis and observation strategy with
 other latency sources. We hope it will motivate
 work to reduce technical latency,
@@ -229,7 +225,7 @@ to catch prompt emission in the advanced detector era.
 \section*{Implementation in GStreamer}
 
 \PARstart{\color{ink1!50!black}W}{\color{ink1!50!black}e tested the accuracy of}
-\lloid\ using a sub-bank of 1314 (real-valued) templates with an Advanced LIGO
+\lloid\ using a sub-bank of 1314 (real-valued) templates with an Advanced \LIGO{}
 (high-power, zero detuning) noise spectrum down to 10~Hz.  Figures
 \ref{fig:tmpltbank} and \ref{fig:time_slices} depict the masses used for the
 test and the resulting time-slice design, respectively. The \SVD{} tolerance is
@@ -240,7 +236,7 @@ algorithm.
 %
 \begin{figure}[h]
 	\includegraphics[width=1.1\textwidth]{figures/tmpltbank}
-	\caption{\label{fig:tmpltbank}Source parameters for benchmark. Waveforms enter the Advanced LIGO band $\sim$17.5 minutes before merger.}
+	\caption{\label{fig:tmpltbank}Source parameters for benchmark. Waveforms enter the Advanced \LIGO{} band $\sim$17.5 minutes before merger.}
 \end{figure}
 %
 \begin{figure}
@@ -282,7 +278,7 @@ an excellent fit.
 \raisebox{1.5mm}{\includegraphics[height=3cm]{figures/gstreamer-logo}}
 \newline\newline
 \emph{Presented at Amaldi 9, Cardiff, Wales, UK.} \\
-This poster has \textsc{ligo} document number \LIGO{}-\textsc{g}\oldstylenums{1100683}-v\oldstylenums{2}.
+This poster has \textsc{ligo} document number \LIGO{}-\textsc{g}\oldstylenums{1100683}-v\oldstylenums{3}.
 \end{minipage}
 
 \end{document}
