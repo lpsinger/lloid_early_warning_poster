@@ -215,6 +215,7 @@
 
 \begin{frame}
 	\frametitle{Novel method: \textsc{lloid}}
+	\framesubtitle{Low Latency Online Inspiral Detection}
 
 	We exploit the chirp-like nature of inspiral signals by
 
@@ -366,6 +367,16 @@
 \begin{frame}
 	\frametitle{Implementation}
 	\framesubtitle{Online filtering stage}
+	We built a prototype \textsc{lloid} filtering stage using \emph{\color{ink3}GStreamer}, an open source signal processing framework. \\~\\
+	A GStreamer element consists of one or more \emph{\color{ink3}pipelines} of interconnected, reusable signal processing \emph{\color{ink3}elements}.  Elements exchange both \emph{\color{ink3}events} and \emph{\color{ink3}buffers} of binary data. \\~\\
+
+	GStreamer:
+	\begin{itemize}
+		\item is ubiquitous (present on most Linux desktops, many mobile devices)
+		\item comes with C, Python, and shell interfaces
+		\item is implicitly multithreaded
+		\item provides useful stock signal processing elements
+	\end{itemize}
 \end{frame}
 
 \begin{frame}
