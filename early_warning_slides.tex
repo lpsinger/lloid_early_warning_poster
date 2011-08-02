@@ -268,6 +268,7 @@
 \end{frame}
 
 \begin{frame}
+	\frametitle{Second trick: singular value decomposition}
 	\begin{columns}
 		\begin{column}{0.4\textwidth}
 			\begin{center}
@@ -279,6 +280,12 @@
 			\end{center}
 		\end{column}
 		\begin{column}{0.6\textwidth}
+			Time slices represent orthogonal subspaces, but within one time slice the templates are still highly correlated. \\~\\
+
+			We decompose the time-sliced templates further using the singular value decomposition,
+			$$h_i^s[k] = \sum_{\mathclap{l=0}}^{\mathclap{M-1}} v_{il}^s \sigma_l^s u_l^s[k] \approx \sum_{\mathclap{l=0}}^{\mathclap{L^s-1}} v_{il}^s \sigma_l^s u_l^s[k].$$
+
+			This gives us orthonormal \emph{\color{ink3}basis templates} $u_l^s[k]$, related to the original templates through a \emph{\color{ink3}reconstruction matrix} $v_{il}^s\sigma_l^s$.
 		\end{column}
 	\end{columns}
 	\footnotesize{Images from Phys. Rev. D 82, 044025 (2010).}
