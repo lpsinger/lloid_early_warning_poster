@@ -292,6 +292,25 @@
 \end{frame}
 
 \begin{frame}
+	\frametitle{Second trick: singular value decomposition}
+	\begin{columns}
+		\begin{column}{0.6\textwidth}
+			The \textsc{svd} is an exact matrix factorization, but we can greatly reduce the number of filters by keeping only $L \ll M$ basis templates. \\~\\
+
+			$L$ determines the \textsc{svd} tolerance,
+			$$\left[ \sum_{l=0}^{L^s-1} \left( \sigma_l^s \right)^2 \right]\left[ \sum_{l=0}^{M-1} \left( \sigma_l^s \right)^2 \right]^{-1},$$
+			which equals the expectation value of the fractional loss in \textsc{snr}.
+		\end{column}
+		\begin{column}{0.4\textwidth}
+			\includegraphics[width=\textwidth]{figures/singular-values}
+		\end{column}
+	\end{columns}
+	\begin{flushright}
+		\footnotesize{Images from Phys. Rev. D 82, 044025 (2010).}
+	\end{flushright}
+\end{frame}
+
+\begin{frame}
 \frametitle{Implementation}
 \end{frame}
 
