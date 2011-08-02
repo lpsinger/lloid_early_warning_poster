@@ -311,7 +311,14 @@
 \end{frame}
 
 \begin{frame}
-\frametitle{Implementation}
+	\frametitle{Implementation}
+	\begin{columns}
+		\begin{column}{0.5\textwidth}
+			\includegraphics[width=\textwidth]{figures/tmpltbank}
+		\end{column}
+		\begin{column}{0.5\textwidth}
+		\end{column}
+	\end{columns}
 \end{frame}
 
 \begin{frame}[plain]
@@ -349,6 +356,39 @@
 \begin{frame}
 	\frametitle{GStreamer pipeline}
 	\includegraphics[width=\textwidth]{figures/pipeline}
+\end{frame}
+
+\begin{frame}
+\frametitle{Computational costs and latency}
+\begin{table}
+\caption{\label{table:flops}Cost and latency of the \TD\ method, the \FD\ method, and \lloid.}
+\begin{center}
+\begin{tabular}{lll}
+\hline\hline
+method & \flops\ & latency (s) \\
+\hline
+time domain & $4.9\times10^{13}$ & 0 \\
+frequency domain & $5.2\times10^8$ & $2\times10^3$ \\
+\lloid\ (theory) & $4.9\times10^8$ & $2\times10^{-3}$ \\
+\lloid\ (prototype) & ----------- & 5 \\
+\hline
+\end{tabular}
+\end{center}
+\end{table}
+
+\begin{table}
+\caption{Expressions for floating point operations per second (flop/s).}
+\begin{tabular}{ll}
+\hline\hline
+method & \flops\ \\
+\hline
+time domain & $2 f^0 M N$ \\
+frequency domain & $\approx 2 f^0 M \lg D$ \\
+\lloid\ & $\approx 2 \sum_{s=0}^{S-1} f^s \numsvdtmps \left( \slicessamps + \numtmps \right)$ \\
+\hline
+\end{tabular}
+\end{table}
+
 \end{frame}
 
 
