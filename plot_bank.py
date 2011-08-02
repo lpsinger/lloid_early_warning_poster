@@ -99,5 +99,5 @@ axins.get_yaxis().set_major_locator(ticker.MultipleLocator(0.1))
 #axins.set_title('%d templates' % n_small_templates)
 mark_inset(ax, axins, loc1=2, loc2=4, fc="none", ec="0.2")
 
-pylab.savefig(sys.argv[1])
+pylab.savefig(sys.argv[1], transparent=True)
 pylab.close()

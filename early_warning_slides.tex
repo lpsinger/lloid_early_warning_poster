@@ -313,13 +313,22 @@
 
 \begin{frame}
 	\frametitle{Implementation}
-	\begin{columns}
-		\begin{column}{0.5\textwidth}
-			\includegraphics[width=\textwidth]{figures/tmpltbank}
-		\end{column}
-		\begin{column}{0.5\textwidth}
-		\end{column}
-	\end{columns}
+	\framesubtitle{Offline planning stage}
+	\begin{enumerate}
+		\item Place templates in parameter space (\texttt{lalapps\_tmpltbank})
+		\item Partition bank into \emph{sub-banks} of comparable $\mathcal{M}$, T-F evolution
+		\item Divide each sub-bank into bandlimited time slices
+		\item Perform \textsc{svd} on each time slice
+		\item Save everything to disk:
+			\begin{itemize}
+				\item basis filter coefficients
+				\item reconstruction matrices
+				\item time slice boundaries
+			\end{itemize}
+	\end{enumerate}
+	\begin{flushright}
+		\raisebox{-2cm}{~\smash{\includegraphics[width=0.6\textwidth]{figures/tmpltbank}}}
+	\end{flushright}
 \end{frame}
 
 \begin{frame}[plain]
