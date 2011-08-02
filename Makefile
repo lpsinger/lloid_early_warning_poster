@@ -6,7 +6,7 @@ PREREQS = \
 
 all: early_warning_slides.pdf early_warning_poster.pdf
 
-early_warning_slides.pdf: early_warning_slides.tex figures/snr_in_time.png figures/snr_psd.png
+early_warning_slides.pdf: early_warning_slides.tex figures/snr_in_time.png figures/snr_psd.png figures/fd_latency.png
 	$(TEX) -draftmode early_warning_slides
 	#$(BIBTEX) early_warning_slides
 	#$(TEX) -draftmode early_warning_slides
@@ -17,6 +17,9 @@ early_warning_poster.pdf: $(PREREQS)
 	$(BIBTEX) early_warning_poster
 	$(TEX) -draftmode early_warning_poster
 	$(TEX) early_warning_poster
+
+figures/fd_latency.png: plot_fd_latency.py
+	python $< $@
 
 figures/snr_psd.png: plot_psd.py
 	python $< $@

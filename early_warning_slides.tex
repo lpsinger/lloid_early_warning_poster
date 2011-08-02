@@ -169,6 +169,23 @@
 	\end{columns}
 \end{frame}
 
+\begin{frame}
+	\frametitle{Frequency domain method: overlap-save}
+	The frequency domain (\textsc{fd}) method's latency is determined by the overlap between blocks. \\~\\
+	\begin{columns}
+		\begin{column}{0.6\textwidth}
+			\includegraphics[width=\textwidth]{figures/fd_latency}
+		\end{column}
+		\begin{column}{0.4\textwidth}
+
+			The latency can be made arbitrary small, but at the price of a {\color{ink3}\emph{divergent}} computational cost of
+			\begin{equation*}
+				2 \left(1 + \frac{\textrm{filter length}}{\textrm{latency}}\right)
+			\end{equation*}
+			operations~/~sample~/ $\lg (\textrm{template length})$.
+		\end{column}
+	\end{columns}
+\end{frame}
 
 \begin{frame}
 \frametitle{Method}
