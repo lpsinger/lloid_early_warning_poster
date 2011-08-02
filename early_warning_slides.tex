@@ -199,6 +199,38 @@
 \frametitle{Implementation}
 \end{frame}
 
+\begin{frame}[plain]
+	\begin{center}
+		\includegraphics[height=0.75\textheight]{figures/lloid-diagram}
+		\footnotesize{\begin{equation*}
+			\underbrace{
+				\vphantom{\Bigg(}\;\rho_i^s \; [k]\;
+			}_{\raisebox{-0mm}{\text{\clap{early-warning output}}}} =%
+				% Interpolation SNR
+				\color{diagramaccum}
+				\overbrace{
+					\vphantom{\Bigg(}\left(H^\uparrow \rho_i^{s+1}\right)[k]
+				}^{\raisebox{0mm}{\text{\clap{{\sc snr} from previous time slices}}}}
+				% Plus ...
+				\;\;+\;
+				% Reconstruction
+				\color{diagramreconstruct}
+				\underbrace{
+					\vphantom{\Bigg(}\sum_{l=0}^{L^s-1} v_{il}^s \sigma_l^s
+				}_{\raisebox{-0mm}{\text{\clap{reconstruction}}}}
+				% Orthogonal FIR filter
+				\color{diagramfir}
+				\;\;\overbrace{
+					\vphantom{\Bigg(}\sum_{n=0}^{N^s-1} u_l^s[n]
+					\;\color{black}
+					{\smash{\underbrace{
+						\vphantom{\Bigg(}x^s[k-n]
+					}_{\raisebox{-0mm}{\text{\clap{decimated $h(t)$}}}}}}
+				}^{\raisebox{0mm}{\text{\clap{orthogonal {\sc fir} filters}}}}
+		\end{equation*}}
+	\end{center}
+\end{frame}
+
 
 \section[Results]{}
 
