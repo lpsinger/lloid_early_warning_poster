@@ -112,7 +112,7 @@
 
 	$M$ templates are chosen for $M/2$ sources $\theta_0$,~$\theta_1$,~$\dots$,~$\theta_{M/2-1}$. \\~\\
 
-	For $i \in [0, M)$, unit normalized template $h_i [k]$, whitened detector data $x[k]$, the filter outputs are
+	For $i \in [0, M)$, unit normalized template $h_i [k]$, whitened detector data $x[k]$, the filter outputs are just cross-correlations:
 	$$
 		\rho_i [k] = \sum_{n=0}^{N-1} h_{i}[n] x [k-n].
 	$$
@@ -120,6 +120,8 @@
 
 \begin{frame}
 	\frametitle{Time domain method: \textsc{fir} filter}
+	The most straightforward way to build a matched filter bank is using \textsc{fir} filters, which are just sliding dot products.
+
 	\begin{columns}
 		\begin{column}{0.6\textwidth}
 			\includegraphics[width=\textwidth]{figures/fir}
@@ -128,6 +130,15 @@
 			\end{flushleft}
 		\end{column}
 		\begin{column}{0.4\textwidth}
+			Pros:
+			\begin{itemize}
+				\item Easy to implement
+				\item Zero latency
+			\end{itemize}
+			Cons:
+			\begin{itemize}
+				\item Expensive if templates contain many samples
+			\end{itemize}
 		\end{column}
 	\end{columns}
 \end{frame}
@@ -136,6 +147,18 @@
 	\frametitle{Frequency domain method: overlap-save}
 	\begin{columns}
 		\begin{column}{0.5\textwidth}
+			An alternative to the time domain method is frequency domain convolution via the \textsc{fft}.
+
+			Pros:
+			\begin{itemize}
+				\item Computationally efficient even for very long templates
+				\item Highly tuned \textsc{fft}s available for most architectures
+			\end{itemize}
+			Cons:
+			\begin{itemize}
+				\item Input must be zero-padded, output must be clipped
+				\item High latency: typically comparable to length of templates
+			\end{itemize}
 		\end{column}
 		\begin{column}{0.5\textwidth}
 			\includegraphics[width=0.9\textwidth]{figures/overlap-save}
