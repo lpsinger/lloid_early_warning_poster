@@ -6,7 +6,7 @@ PREREQS = \
 
 all: early_warning_slides.pdf early_warning_poster.pdf
 
-early_warning_slides.pdf: early_warning_slides.tex figures/snr_in_time.png figures/snr_psd.png figures/fd_latency.png figures/lloid-diagram.pdf
+early_warning_slides.pdf: early_warning_slides.tex figures/snr_in_time.png figures/snr_psd.png figures/fd_latency.png figures/lloid-diagram.pdf figures/envelope.png
 	$(TEX) -draftmode early_warning_slides
 	#$(BIBTEX) early_warning_slides
 	#$(TEX) -draftmode early_warning_slides
