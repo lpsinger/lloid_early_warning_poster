@@ -232,7 +232,39 @@
 \section[Implementation]{}
 
 \begin{frame}
-	\includegraphics[width=0.5\textwidth]{figures/envelope}
+	\frametitle{First trick: time slices}
+
+	Inspiral signals are chirps $\Rightarrow$ truncating the waveform at some time $t$ before merger results in a bandlimited signal. \\~\\
+
+	\footnotesize{
+	Using known time-frequency relationship, e.g. $f(t) = \frac{1}{\pi \mathcal{M}} \left[ \frac{5}{256}\frac{\mathcal{M}}{t}\right]^{3/8}$, \\~\\
+
+	split templates into orthogonal ``time slices'':
+	$
+	\label{eq:time-slices}
+	h_{i}[k] = \sum\limits_{s=0}^{S-1}
+		\begin{cases}
+			h_i^s[k] & \textrm{if } t^s \leqslant \frac{k}{f^0} < t^{s+1} \\
+			0 & \textrm{otherwise.}
+		\end{cases}
+	$}
+
+	\begin{columns}
+		\begin{column}{0.5\textwidth}
+			\includegraphics[width=\textwidth]{figures/envelope}
+		\end{column}
+		\begin{column}{0.5\textwidth}
+			\footnotesize{Can downsample time slices w/o aliasing:
+			$$
+			h_{i}^{s}[k] \equiv
+				\begin{cases}
+					h_{i}\!\left[k\frac{f}{f^s}\right] & \textrm{if } t^s \leqslant k/f^s < t^{s+1} \\
+					0 & \textrm{otherwise.}
+				\end{cases}
+			$$
+			}
+		\end{column}
+	\end{columns}
 \end{frame}
 
 \begin{frame}
