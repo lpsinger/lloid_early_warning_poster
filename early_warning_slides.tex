@@ -212,6 +212,23 @@
 	\end{itemize}
 \end{frame}
 
+\begin{frame}
+	\frametitle{Novel method: \textsc{lloid}}
+
+	We exploit the chirp-like nature of inspiral signals by
+
+	\begin{itemize}
+		\item Partitioning and downsampling the template coefficients \\ \footnotesize{reducing number of filter coefficients by a factor of {\color{ink3}$\sim 10^2$}} \\~\\
+
+		\item Decimating the detector data in several stages \\ \footnotesize{reducing sample rate by a factor of {\color{ink3}$\sim 10^2$}} \\~\\
+
+		\item Decomposing templates further using the singular value decomposition (\textsc{svd})
+		\footnotesize{reducing the number of filters by a factor of {\color{ink3}$\sim 10^1 \textrm{---} 10^2$}}
+	\end{itemize}
+
+	resulting in an overall speedup by a factor of {\color{ink3}$\sim 10^5 \textrm{---} 10^6$} over the conventional \textsc{td} method.
+\end{frame}
+
 \section[Implementation]{}
 
 \begin{frame}
