@@ -105,6 +105,20 @@
 \end{frame}
 
 \begin{frame}
+	\frametitle{Matched filter banks}
+	For systems in which the effects of can be ignored, the intrinsic source parameters are just the component masses of the binary, $\theta = (m_1, m_2)$. \\~\\
+
+	Strain observed by the detector is a linear combination of two orthogonal signals corresponding to the `+' and `$\times$' polarizations. \\~\\
+
+	$M$ templates are chosen for $M/2$ sources $\theta_0$,~$\theta_1$,~$\dots$,~$\theta_{M/2-1}$. \\~\\
+
+	For $i \in [0, M)$, unit normalized template $h_i [k]$, whitened detector data $x[k]$, the filter outputs are
+	$$
+		\rho_i [k] = \sum_{n=0}^{N-1} h_{i}[n] x [k-n].
+	$$
+\end{frame}
+
+\begin{frame}
 	\frametitle{Time domain method: \textsc{fir} filter}
 	\begin{columns}
 		\begin{column}{0.6\textwidth}
