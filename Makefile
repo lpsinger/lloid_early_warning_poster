@@ -18,10 +18,10 @@ early_warning_poster.pdf: $(PREREQS)
 	$(TEX) -draftmode early_warning_poster
 	$(TEX) early_warning_poster
 
-figures/fd_latency.png: plot_fd_latency.py
+figures/fd_latency.png: plot_fd_latency.py matplotlibrc
 	python $< $@
 
-figures/snr_psd.png: plot_psd.py
+figures/snr_psd.png: plot_psd.py matplotlibrc
 	python $< $@
 
 figures/lloid-diagram.pdf: figures/diagram.tex macros.tex
