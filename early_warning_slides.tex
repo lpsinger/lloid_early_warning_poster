@@ -203,9 +203,9 @@
 
 			The latency can be made arbitrary small, but at the price of a {\color{ink3}\emph{divergent}} computational cost of
 			\begin{equation*}
-				\approx 2 \left(1 + \frac{\textrm{filter length}}{\textrm{latency}}\right)
+				\approx \left(1 + \frac{\textrm{filter length}}{\textrm{latency}}\right)
 			\end{equation*}
-			operations~/~sample~/ $\lg (\textrm{template length})$.
+			operations~/~sample~/ $2 \lg (\textrm{template length})$.
 		\end{column}
 	\end{columns}
 \end{frame}
@@ -401,10 +401,10 @@
 \hline\hline
 method & \flops\ & latency (s) \\
 \hline
-time domain & $4.9\times10^{13}$ & 0 \\
+time domain & $4.9\times10^{13}$ & $0$ \\
 frequency domain & $5.2\times10^8$ & $2\times10^3$ \\
-\lloid\ (theory) & $4.9\times10^8$ & $2\times10^{-3}$ \\
-\lloid\ (prototype) & ----------- & 5 \\
+\lloid\ (theory) & $6.6\times10^8$ & $0$ \\
+\lloid\ (prototype) & ----------- & $0.5$ \\
 \hline
 \end{tabular}
 \end{center}
