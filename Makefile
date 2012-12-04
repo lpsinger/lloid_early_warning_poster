@@ -6,11 +6,14 @@ PREREQS = \
 
 all: early_warning_slides.pdf early_warning_poster.pdf
 
-early_warning_slides.pdf: early_warning_slides.tex figures/snr_in_time.png figures/snr_psd.png figures/fd_latency.png figures/lloid-diagram.pdf figures/envelope.png figures/original-templates.pdf figures/svd-templates.pdf figures/singular-values.pdf figures/tmpltbank.png
+early_warning_slides.pdf: early_warning_slides.tex figures/snr_in_time.png figures/snr_psd.png figures/fd_latency.png figures/lloid-diagram.pdf figures/envelope.png figures/original-templates.pdf figures/svd-templates.pdf figures/singular-values.pdf figures/tmpltbank.png doi doi.png
 	$(TEX) -draftmode early_warning_slides
 	#$(BIBTEX) early_warning_slides
 	#$(TEX) -draftmode early_warning_slides
 	$(TEX) early_warning_slides
+
+doi.png: doi
+	qrencode -s 36 -l H -o $@ `cat $^`
 
 early_warning_poster.pdf: $(PREREQS)
 	$(TEX) -draftmode early_warning_poster
@@ -40,4 +43,4 @@ figures/tmpltbank.png: plot_bank.py matplotlibrc data/tmpltbank.xml data/tmpltba
 	python $< $@
 
 clean:
-	rm -f early_warning_poster.{aux,out,log,bbl,blg,pdf} figures/tmpltbank.png figures/envelope.png figures/loc_in_time.png figures/snr_in_time.png
+	rm -f early_warning_poster.{aux,out,log,bbl,blg,pdf} figures/tmpltbank.png figures/envelope.png figures/loc_in_time.png figures/snr_in_time.png doi.png
