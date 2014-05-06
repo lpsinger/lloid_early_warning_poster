@@ -39,8 +39,8 @@ matplotlib.rcParams.update(
 # Place time slices
 
 # Generate plot
-from gstlal.svd_bank import read_bank
-bank = read_bank('data/svd_0_9999.xml')
+from gstlal.svd_bank import read_banks
+bank, = read_banks('data/svd_0_9999.xml')
 pylab.figure(figsize=fig_size)
 ax = pylab.subplot(111, xscale="log")
 legend_artists = []
@@ -54,7 +54,9 @@ for color, (rate, fragments) in izip(('black', '#E6E6E6', 'white', '#FFD9BF', '#
 	for fragment in fragments:
 		t = pylab.linspace(max(fragment.start, 1./4096), fragment.end)
 		a = (0.2 * t / mc) ** (-1./4)
-		pylab.fill_between(t, -a, a, facecolor = color)
+		# FIXME: PGF backend doesn't like filled shapes that extend beyond axes.
+		# See https://github.com/matplotlib/matplotlib/issues/2885.
+		pylab.fill_between(t[t >= 2e-1], -a[t >= 2e-1], a[t >= 2e-1], facecolor = color)
 pylab.legend(reversed(legend_artists), reversed(legend_labels), loc='lower left', ncol=3)
 pylab.xlim(tmax, 2e-1)
 pylab.ylim(-.1, .1)
@@ -67,6 +69,6 @@ t.set_color("w")  # XXX: hard-code white text for the last text entry
 pylab.grid()
 pylab.xlabel('time before coalescence (s)')
 pylab.ylabel(r'strain amplitude')
-pylab.subplots_adjust(left=0.06, right=0.97, top=0.99, bottom=0.275)
+pylab.subplots_adjust(left=0.06, right=0.97, top=0.99, bottom=0.3)
 pylab.gca().set_axis_bgcolor('#E6E6E6')
 pylab.savefig(sys.argv[1])

@@ -113,13 +113,15 @@ for i, (cfile, label) in enumerate(zip(['data/ZERO_DET_high_P.txt'], ['zero det'
 	pylab.loglog(t, numminus, markers[i], color='#800000', lw=0.5)
 	pylab.loglog(t, numplus, markers[i], color='#800000', lw=0.5)
 	#pylab.hold(1)
-	pylab.fill_between(t, numminus, numplus, color='#FFD9BF')
+	# FIXME: PGF backend doesn't like filled shapes that extend beyond axes.
+	# See https://github.com/matplotlib/matplotlib/issues/2885.
+	pylab.fill_between(t[t >= 0.01], numminus[t >= 0.01], numplus[t >= 0.01], color='#FFD9BF')
 
 pylab.grid()
 #pylab.legend(loc='lower left')
 pylab.ylabel(r'detections yr$^{-1}$')
 pylab.xlabel(r'time before coalescence (s)')
-pylab.subplots_adjust(bottom=0.15,top=0.95,left=0.15,right=0.95)
+pylab.subplots_adjust(bottom=0.175,top=0.95,left=0.15,right=0.95)
 pylab.xlim([0.01,1000])
 pylab.ylim([.1, 1000])
 pylab.gca().set_axis_bgcolor('#E6E6E6')

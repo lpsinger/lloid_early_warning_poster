@@ -77,7 +77,7 @@ def foo():
 
 pylab.figure(figsize=fig_size)
 pylab.gca().set_axis_bgcolor('#E6E6E6')
-pylab.subplots_adjust(left=0.175, bottom=0.15)
+pylab.subplots_adjust(left=0.175, bottom=0.175)
 pylab.xlim(0.5, 3)
 pylab.ylim(2, 6)
 #pylab.fill_between(fill_mchirp, fill_min_mtotal, fill_max_mtotal, edgecolor='k', facecolor='k')
